@@ -1,6 +1,6 @@
 /*!
  * emag.db
- * Copyright(c) 2016 huangxin <3203317@qq.com>
+ * Copyright(c) 2017 huangxin <3203317@qq.com>
  * MIT Licensed
  */
 'use strict';
