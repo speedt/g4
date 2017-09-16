@@ -5,5 +5,5 @@
  */
 'use strict';
 
-exports.getByChannelId = require('./getByChannelId');
+// exports.getByChannelId = require('./getByChannelId');
 exports.getById        = require('./getById');

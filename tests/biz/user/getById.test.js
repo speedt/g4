@@ -5,11 +5,11 @@
  */
 'use strict';
 
-var add = require('../../../src/biz/user/getById');
-var expect = require('chai').expect;
+const biz = require('../../../src/biz/');
+const expect = require('chai').expect;
 
 describe('加法函数的测试', function(){
-  it('1 加 1 应该等于 2', function(){
-    expect(add(1, 1)).to.be.equal(1);
+  it('1 加 1 等于 2', function(){
+    expect(biz.user.getById(1, 1)).to.be.equal(1);
   });
 });
