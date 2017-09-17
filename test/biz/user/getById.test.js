@@ -5,7 +5,7 @@
  */
 'use strict';
 
-const biz = require('../../../src/biz/');
+const biz = require('emag.biz');
 const expect = require('chai').expect;
 
 describe('加法函数的测试', function(){
