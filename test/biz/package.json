@@ -1,0 +1,24 @@
+{
+  "name": "test.emag.biz",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "log4js": "2.3.3",
+    "speedt-amq": "0.1.63",
+    "speedt-utils": "0.1.74",
+    "speedt-redis": "0.1.60",
+    "speedt-mysql": "0.1.65",
+    "iconv-lite": "0.4.13",
+    "bufferhelper": "0.2.1",
+    "underscore.string": "3.3.4",
+    "underscore": "1.8.3",
+    "redis": "2.6.3",
+    "mysql": "2.12.0",
+    "node-uuid": "1.4.1",
+    "async": "0.9.0",
+    "eventproxy": "0.3.5"
+  }
+}
