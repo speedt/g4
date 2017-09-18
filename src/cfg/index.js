@@ -56,19 +56,19 @@ Promise.all([p1]).then(values => {
 
   const biz = require('emag.biz');
 
-  // biz.cfg.findAll(null, (err, docs) => {
-  //   if(err) return logger.error('load dynamic config:', err);
+  biz.cfg.findAll(null, (err, docs) => {
+    if(err) return logger.error('load dynamic config:', err);
 
-  //   var dynamic = exports.dynamic = {};
+    var dynamic = exports.dynamic = {};
 
-  //   for(let i of docs){
-  //     if(!dynamic[i.type_]) dynamic[i.type_] = {};
-  //     dynamic[i.type_][i.key_] = i.value_;
-  //   }
+    for(let i of docs){
+      if(!dynamic[i.type_]) dynamic[i.type_] = {};
+      dynamic[i.type_][i.key_] = i.value_;
+    }
 
-  //   logger.debug('loaded dynamic config:', dynamic);
-  //   logger.info ('loaded all config: success');
-  // });
+    logger.debug('loaded dynamic config:', dynamic);
+    logger.info ('loaded all config: success');
+  });
 }).catch(err => {
   logger.error('load config:', err);
   process.exit(1);

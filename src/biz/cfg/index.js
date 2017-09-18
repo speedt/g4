@@ -5,5 +5,4 @@
  */
 'use strict';
 
-exports.user = require('./user/');
-exports.cfg  = require('./cfg/');
+exports.findAll = require('./findAll');
