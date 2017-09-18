@@ -5,6 +5,7 @@
  */
 'use strict';
 
-exports.user   = require('./user/');
-exports.cfg    = require('./cfg/');
-exports.notice = require('./notice/');
+exports.user    = require('./user/');
+exports.cfg     = require('./cfg/');
+exports.notice  = require('./notice/');
+exports.backend = require('./backend/');
