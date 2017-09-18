@@ -26,22 +26,20 @@ _.str    = require('underscore.string');
 _.mixin(_.str.exports());
 
 (() => {
-  var sql = 'SELECT a.* FROM s_user a WHERE a.server_id=? AND a.channel_id=?';
+  var sql = 'SELECT a.* FROM w_notice a WHERE a.id=?';
 
   /**
-   * 获取用户
    *
-   * @param server_id
-   * @param channel_id
+   *
    * @return
    */
-  exports = module.exports = function(server_id, channel_id){
+  exports = module.exports = function(id){
     return new Promise((resolve, reject) => {
-      mysql.query(sql, [server_id, channel_id], (err, docs) => {
+      mysql.query(sql, [id], (err, docs) => {
         if(err) return reject(err);
-        if(!mysql.checkOnly(docs)) return reject('通道不存在');
+        if(!mysql.checkOnly(docs)) return reject('数据不存在');
         resolve(docs[0]);
-      });
+      })
     });
   };
 })();

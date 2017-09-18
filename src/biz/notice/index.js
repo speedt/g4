@@ -5,5 +5,8 @@
  */
 'use strict';
 
-exports.getByChannelId = require('./getByChannelId');
-exports.getById        = require('./getById');
+exports.del      = require('./del');
+exports.editInfo = require('./editInfo');
+exports.findAll  = require('./findAll');
+exports.getById  = require('./getById');
+exports.saveNew  = require('./saveNew');
