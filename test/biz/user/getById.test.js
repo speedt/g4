@@ -1,15 +1,22 @@
 /*!
- * emag.biz
+ * test.emag.biz
  * Copyright(c) 2017 huangxin <3203317@qq.com>
  * MIT Licensed
  */
 'use strict';
 
+const assert = require('assert');
 const biz    = require('emag.biz');
-const expect = require('chai').expect;
 
-describe('加法函数的测试', function(){
-  it('1 加 1 等于 2', function(){
-    expect(1).to.be.equal(1);
+describe('biz.user', function(){
+  it('#getById', function(){
+
+    return biz.user.getById('1')
+    .then(doc => {
+      assert.equal(doc.id, '1');
+    })
+    .catch(err => {
+      assert.ok(!err);
+    })
   });
 });
