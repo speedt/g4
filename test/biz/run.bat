@@ -1,1 +1,0 @@
-npm install & npm install ..\..\src\db & npm install ..\..\src\lib & npm install ..\..\src\cfg & npm install ..\..\src\biz

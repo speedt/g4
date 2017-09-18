@@ -35,6 +35,12 @@ _.mixin(_.str.exports());
    * @return
    */
   exports = module.exports = function(id, trans){
-    return 1;
+    return new Promise((resolve, reject) => {
+      mysql.query(sql, [id], (err, docs) => {
+        if(err) return reject(err);
+        if(!mysql.checkOnly(docs)) return reject('用户不存在');
+        resolve(docs[0]);
+      });
+    });
   };
 })();

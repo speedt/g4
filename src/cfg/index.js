@@ -49,7 +49,10 @@ var p1 = new Promise((resolve, reject) => {
 });
 
 Promise.all([p1]).then(values => {
-  exports.common = values[0].data;
+  var common = values[0];
+  if(124 !== common.ver) throw new Error('');
+
+  exports.common = common.data;
 
   const biz = require('emag.biz');
 
@@ -64,9 +67,8 @@ Promise.all([p1]).then(values => {
     }
 
     logger.debug('loaded dynamic config:', dynamic);
-    logger.info('loaded all config: success');
+    logger.info ('loaded all config: success');
   });
-
 }).catch(err => {
   logger.error('load config:', err);
   process.exit(1);
