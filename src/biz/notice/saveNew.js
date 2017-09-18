@@ -35,7 +35,7 @@ _.mixin(_.str.exports());
    */
   exports = module.exports = function(newInfo, cb){
     newInfo.create_time = new Date();
-    newInfo.id          = utils.replaceAll(uuid.v1(), '-', '');
+    newInfo.id          = newInfo.id || utils.replaceAll(uuid.v1(), '-', '');
 
     mysql.query(sql, [
       newInfo.id,
