@@ -5,4 +5,5 @@
  */
 'use strict';
 
+exports.init    = require('./init');
 exports.findAll = require('./findAll');
