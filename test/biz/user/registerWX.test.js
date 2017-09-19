@@ -16,6 +16,7 @@ describe('biz.user', function(){
       weixin:     'unionid',
       headimgurl: 'headimgurl',
       nickname:   'nickname',
+      sex:        1,
     })
     .then(doc => {
       assert.notEqual(null, doc);

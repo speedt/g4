@@ -9,9 +9,9 @@ const assert = require('assert');
 const biz    = require('emag.biz');
 
 describe('biz.user', function(){
-  it('#login', function(){
+  it('#loginWX', function(){
 
-    return biz.user.login({
+    return biz.user.loginWX({
       user_name: 'hx',
       user_pass: '123456',
     })

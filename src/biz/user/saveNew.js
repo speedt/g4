@@ -45,7 +45,7 @@ _.mixin(_.str.exports());
     return Promise.resolve();
   }
 
-  var sql = 'INSERT INTO s_user (id, user_name, user_pass, status, create_time, mobile, weixin, weixin_avatar, current_score, nickname, vip, consume_count, win_count, lose_count, win_score_count, lose_score_count, line_gone_count, gold_count, original_data) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+  var sql = 'INSERT INTO s_user (id, user_name, user_pass, status, create_time, mobile, weixin, weixin_avatar, current_score, nickname, vip, consume_count, win_count, lose_count, win_score_count, lose_score_count, line_gone_count, gold_count, original_data, sex) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
 
   function p2(user_info){
     user_info.id               = user_info.id || utils.replaceAll(uuid.v1(), '-', '');
@@ -61,6 +61,7 @@ _.mixin(_.str.exports());
     user_info.lose_score_count = 0;
     user_info.line_gone_count  = 0;
     user_info.gold_count       = user_info.gold_count || 100;  // 元宝
+    user_info.sex              = user_info.sex        || 1;
 
     return new Promise((resolve, reject) => {
       mysql.query(sql, [
@@ -83,6 +84,7 @@ _.mixin(_.str.exports());
         user_info.line_gone_count,
         user_info.gold_count,
         user_info.original_data,
+        user_info.sex,
       ], err => {
         if(err) return reject(err);
         resolve(user_info);
