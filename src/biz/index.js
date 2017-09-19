@@ -11,3 +11,4 @@ exports.notice   = require('./notice/');
 exports.backend  = require('./backend/');
 exports.frontend = require('./frontend/');
 exports.manager  = require('./manager/');
+exports.goods    = require('./goods/');
