@@ -5,4 +5,5 @@
  */
 'use strict';
 
-exports.getById = require('./getById');
+exports.getById   = require('./getById');
+exports.getByName = require('./getByName');
