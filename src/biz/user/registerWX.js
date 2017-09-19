@@ -31,10 +31,12 @@ _.mixin(_.str.exports());
    * @return
    */
   exports = module.exports = function(user_info){
-    formVali(user_info)
-    .then(biz.user.saveNew)
-    .then(() => resolve(user_info))
-    .catch(reject);
+    return new Promise((resolve, reject) => {
+      formVali(user_info)
+      .then(biz.user.saveNew)
+      .then(() => resolve(user_info))
+      .catch(reject);
+    });
   };
 
   function formVali(user_info){

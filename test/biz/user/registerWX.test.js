@@ -12,8 +12,10 @@ describe('biz.user', function(){
   it('#registerWX', function(){
 
     return biz.user.registerWX({
-      user_name: 'test_user',
-      user_pass: '111111',
+      openid:     'openid',
+      weixin:     'unionid',
+      headimgurl: 'headimgurl',
+      nickname:   'nickname',
     })
     .then(doc => {
       assert.notEqual(null, doc);

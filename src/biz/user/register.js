@@ -33,10 +33,12 @@ _.mixin(_.str.exports());
   exports = module.exports = function(user_info){
   	user_info.id = null;
 
-    formVali(user_info)
-    .then(biz.user.saveNew)
-    .then(() => resolve(user_info))
-    .catch(reject);
+    return new Promise((resolve, reject) => {
+      formVali(user_info)
+      .then(biz.user.saveNew)
+      .then(() => resolve(user_info))
+      .catch(reject);
+    });
   };
 
   // 2-10个字符，支持中文，英文大小写、数字、下划线
