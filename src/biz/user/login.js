@@ -67,7 +67,8 @@ _.mixin(_.str.exports());
 
   function authorize(user){
     return new Promise((resolve, reject) => {
-      redis.evalsha(sha1,
+      redis.evalsha(
+        sha1,
         numkeys,
         conf.redis.database,                   /**/
         conf.app.id,                           /**/
