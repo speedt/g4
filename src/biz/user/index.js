@@ -19,3 +19,5 @@ exports.editInfo            = require('./editInfo');
 exports.saveNew             = require('./saveNew');
 exports.register            = require('./register');
 exports.registerWX          = require('./registerWX');
+exports.payment             = require('./payment');
+exports.logout              = require('./logout');
