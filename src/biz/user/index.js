@@ -11,3 +11,4 @@ exports.del            = require('./del');
 exports.changePwd      = require('./changePwd');
 exports.login          = require('./login');
 exports.getByName      = require('./getByName');
+exports.resetPwd       = require('./resetPwd');
