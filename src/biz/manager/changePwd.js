@@ -16,7 +16,6 @@ const utils = require('speedt-utils').utils;
 
 const mysql  = require('emag.db').mysql;
 const redis  = require('emag.db').redis;
-const anysdk = require('emag.lib').anysdk;
 
 const cfg = require('emag.cfg');
 const biz = require('emag.biz');
