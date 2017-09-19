@@ -32,30 +32,13 @@ _.mixin(_.str.exports());
    */
   exports = module.exports = function(user_info, trans){
     return new Promise((resolve, reject) => {
-      formVali(user_info)
-      .then(biz.user.getByName.bind(null, user_info.user_name))
+      biz.user.getByName(user_info.user_name)
       .then(p1)
       .then(p2.bind(null, user_info))
       .then(() => resolve(user_info))
       .catch(reject);
     });
   };
-
-  function formVali(user_info){
-    user_info = user_info || {};
-
-    if(!_.isString(user_info.user_name))
-      return Promise.reject('INVALID_PARAMS');
-
-    user_info.user_name = _.trim(user_info.user_name);
-
-    if(!_.isString(user_info.user_pass))
-      return Promise.reject('INVALID_PARAMS');
-
-    user_info.user_pass = _.trim(user_info.user_pass);
-
-    return Promise.resolve();
-  }
 
   function p1(user){
     if(user) return Promise.reject('用户名已存在');
