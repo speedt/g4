@@ -8,3 +8,4 @@
 exports.getByChannelId = require('./getByChannelId');
 exports.getById        = require('./getById');
 exports.del            = require('./del');
+exports.changePwd      = require('./changePwd');
