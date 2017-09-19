@@ -15,3 +15,4 @@ exports.resetPwd            = require('./resetPwd');
 exports.findAll             = require('./findAll');
 exports.getByRedisChannelId = require('./getByRedisChannelId');
 exports.editInfo            = require('./editInfo');
+exports.saveNew             = require('./saveNew');
