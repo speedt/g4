@@ -31,12 +31,14 @@ _.mixin(_.str.exports());
    * @return
    */
   exports = module.exports = function(user_info, trans){
-    formVali(user_info)
-    .then(biz.user.getByName.bind(null, user_info.user_name))
-    .then(p1)
-    .then(p2.bind(null, user_info))
-    .then(() => resolve(user_info))
-    .catch(reject);
+    return new Promise((resolve, reject) => {
+      formVali(user_info)
+      .then(biz.user.getByName.bind(null, user_info.user_name))
+      .then(p1)
+      .then(p2.bind(null, user_info))
+      .then(() => resolve(user_info))
+      .catch(reject);
+    });
   };
 
   function formVali(user_info){
@@ -75,7 +77,7 @@ _.mixin(_.str.exports());
     user_info.win_score_count  = 0;
     user_info.lose_score_count = 0;
     user_info.line_gone_count  = 0;
-    user_info.gold_count       = user.gold_count || 100;  // 元宝
+    user_info.gold_count       = user_info.gold_count || 100;  // 元宝
 
     return new Promise((resolve, reject) => {
       mysql.query(sql, [
