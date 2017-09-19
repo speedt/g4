@@ -9,15 +9,14 @@ const assert = require('assert');
 const biz    = require('emag.biz');
 
 describe('biz.user', function(){
-  it('#changePwd', function(){
+  it('#login', function(){
 
-    return biz.user.changePwd({
+    return biz.user.login({
+      user_name: 'hx',
       user_pass: '1',
-      old_pass:  '1',
-      id:        '1',
     })
-    .then(doc => {
-      assert.equal('1', doc.id);
+    .then(token => {
+      assert.equal(2, token.length);
     })
     .catch(err => {
       assert.ok(!err, err);
