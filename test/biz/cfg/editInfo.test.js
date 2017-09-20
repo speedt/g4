@@ -12,14 +12,14 @@ describe('biz.cfg', function(){
   it('#editInfo', function (done){
 
     var newInfo = {
-      value_: '1',
+      value_: '3',
       key_:   '2',
-      type_:  '3',
+      type_:  '1',
     };
 
     biz.cfg.editInfo(newInfo, function (err, doc){
-      if(err) return assert.ok(!err);
-      assert.equal('1', doc.value_);
+      if(err) return assert.ok(!err, err);
+      assert.equal('1', doc.type_);
       done();
     });
   });

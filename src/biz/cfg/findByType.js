@@ -31,7 +31,5 @@ _.mixin(_.str.exports());
    *
    * @return
    */
-  exports = module.exports = function(type, cb){
-    mysql.query(sql, [type], cb);
-  };
+  exports = module.exports = (type, cb) => mysql.query(sql, [type], cb);
 })();

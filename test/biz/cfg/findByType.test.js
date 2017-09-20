@@ -5,6 +5,7 @@
  */
 'use strict';
 
+const _      = require('underscore');
 const assert = require('assert');
 const biz    = require('emag.biz');
 
@@ -12,8 +13,8 @@ describe('biz.cfg', function(){
   it('#findByType', function (done){
 
     biz.cfg.findByType('group_type_pushCake', function (err, docs){
-      if(err) return assert.ok(!err);
-      assert.equal(7, docs.length);
+      if(err) return assert.ok(!err, err);
+      assert.equal(true, _.isArray(docs));
       done();
     });
   });
