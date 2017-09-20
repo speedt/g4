@@ -15,7 +15,6 @@ describe('biz.user', function(){
       nickname:      'hx',
       current_score: '1',
       vip:           '2',
-      gold_count:    '3',
       id:            '1',
     })
     .then(doc => {

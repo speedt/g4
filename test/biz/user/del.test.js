@@ -12,7 +12,7 @@ describe('biz.user', function(){
   it('#del', function (done){
 
     biz.user.del('test_id', function (err){
-      if(err) return assert.ok(!err);
+      if(err) return assert.ok(!err, err);
       done();
     });
   });
