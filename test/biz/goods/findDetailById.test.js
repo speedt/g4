@@ -10,13 +10,15 @@ const assert = require('assert');
 const biz    = require('emag.biz');
 
 describe('biz.goods', function(){
-  it('#findAll', function (done){
+  it('#findDetailById', function (){
 
-    biz.goods.findAll(function (err, docs){
-      if(err) return assert.ok(!err, err);
+    return biz.goods.findDetailById('1')
+    .then(docs => {
       console.log(docs);
       assert.equal(true, _.isArray(docs));
-      done();
+    })
+    .catch(err => {
+      assert.ok(!err, err);
     });
   });
 });
