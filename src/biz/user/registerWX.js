@@ -39,6 +39,8 @@ _.mixin(_.str.exports());
   };
 
   function formVali(user_info){
+    user_info = user_info || {};
+
     user_info.original_data = JSON.stringify(user_info);
     user_info.id            = user_info.openid;
     user_info.user_name     = user_info.openid;

@@ -60,7 +60,7 @@ _.mixin(_.str.exports());
     user_info.lose_score_count = 0;
     user_info.line_gone_count  = 0;
     user_info.gold_count       = user_info.gold_count || 100;  // 元宝
-    user_info.sex              = user_info.sex        || 1;
+    user_info.sex              = user_info.sex        || 0;
 
     return new Promise((resolve, reject) => {
       mysql.query(sql, [
