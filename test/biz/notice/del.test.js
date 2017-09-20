@@ -12,7 +12,7 @@ describe('biz.notice', function(){
   it('#del', function (done){
 
     biz.notice.del('test_id', function (err){
-      if(err) return assert.ok(!err);
+      if(err) return assert.ok(!err, err);
       done();
     });
   });

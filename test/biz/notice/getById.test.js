@@ -16,7 +16,7 @@ describe('biz.notice', function(){
       assert.equal('da426e6076be11e7ad1a29fa785dd421', doc.id);
     })
     .catch(err => {
-      assert.ok(!err);
+      assert.ok(!err, err);
     })
   });
 });

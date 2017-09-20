@@ -18,7 +18,7 @@ describe('biz.notice', function(){
     };
 
     biz.notice.editInfo(newInfo, function (err){
-      if(err) return assert.ok(!err);
+      if(err) return assert.ok(!err, err);
       done();
     });
   });
