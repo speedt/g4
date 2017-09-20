@@ -12,3 +12,4 @@ exports.backend  = require('./backend/');
 exports.frontend = require('./frontend/');
 exports.manager  = require('./manager/');
 exports.goods    = require('./goods/');
+exports.gift     = require('./gift/');

@@ -9,16 +9,14 @@ const _      = require('underscore');
 const assert = require('assert');
 const biz    = require('emag.biz');
 
-describe('biz.frontend', function(){
-  it('#findAll', function (){
+describe('biz.gift', function(){
+  it('#findAll', function (done){
 
-    return biz.frontend.findAll()
-    .then(docs => {
+    biz.gift.findAll('9c012a33aa8b4ecc8aaf20ea149a6f25', function (err, docs){
+      if(err) return assert.ok(!err);
       console.log(docs);
       assert.equal(true, _.isArray(docs));
-    })
-    .catch(err => {
-      assert.ok(!err, err);
-    })
+      done();
+    });
   });
 });
