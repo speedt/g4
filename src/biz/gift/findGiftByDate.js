@@ -25,21 +25,18 @@ _.str    = require('underscore.string');
 _.mixin(_.str.exports());
 
 (() => {
-  var sql = 'SELECT '+
-              'b.user_name, '+
-              'a.* '+
-            'FROM '+
-              '(SELECT * FROM w_notice) a '+
-              'LEFT JOIN s_manager b ON (a.user_id=b.id) '+
-            'WHERE '+
-              'b.id IS NOT NULL '+
-            'ORDER BY a.create_time DESC';
+  var sql = 'SELECT a.* FROM w_gift a WHERE a.user_id=? AND a.gift_type=? AND DATE(a.create_time)=?';
+
   /**
    *
    *
    * @return
    */
-  exports = module.exports = function(cb){
-    mysql.query(sql, null, cb);
+  exports = module.exports = function(user_id, gift_type, curr_date, cb){
+    mysql.query(sql, [
+      user_id,
+      gift_type || 1,
+      curr_date || utils.formatDate(new Date(), 'YYYY-MM-dd'),
+    ], cb);
   };
 })();
