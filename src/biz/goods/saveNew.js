@@ -34,7 +34,7 @@ _.mixin(_.str.exports());
    */
   exports = module.exports = function(newInfo, cb){
     mysql.query(sql, [
-      utils.replaceAll(uuid.v1(), '-', ''),
+      newInfo.id || utils.replaceAll(uuid.v1(), '-', ''),
       newInfo.goods_name,
       newInfo.goods_desc,
       new Date(),
