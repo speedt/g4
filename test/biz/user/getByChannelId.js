@@ -16,7 +16,7 @@ describe('biz.user', function(){
       assert.equal('1', doc.id);
     })
     .catch(err => {
-      assert.ok(!err);
+      assert.ok(!err, err);
     })
   });
 });

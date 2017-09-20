@@ -13,6 +13,7 @@ describe('biz.notice', function(){
 
     biz.notice.findAll(function (err, docs){
       if(err) return assert.ok(!err, err);
+      console.log(docs)
       assert.equal(5, docs.length);
       done();
     });
