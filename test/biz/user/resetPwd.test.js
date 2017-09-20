@@ -11,7 +11,7 @@ const biz    = require('emag.biz');
 describe('biz.user', function(){
   it('#resetPwd', function (done){
 
-    biz.user.resetPwd('1', '1', function (err){
+    biz.user.resetPwd('test_id', '1', function (err){
       if(err) return assert.ok(!err, err);
       done();
     });
