@@ -16,6 +16,7 @@ describe('biz.user', function(){
       user_pass: '123456',
     })
     .then(token => {
+      console.log(token);
       assert.equal(2, token.length);
     })
     .catch(err => {

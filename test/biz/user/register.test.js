@@ -16,6 +16,7 @@ describe('biz.user', function(){
       user_pass: '111111',
     })
     .then(doc => {
+      console.log(doc);
       assert.notEqual(null, doc);
     })
     .catch(err => {

@@ -30,8 +30,6 @@ _.mixin(_.str.exports());
    * @return
    */
   exports = module.exports = function(user_info){
-  	user_info.id = null;
-
     return new Promise((resolve, reject) => {
       formVali(user_info)
       .then(biz.user.saveNew)
@@ -63,6 +61,8 @@ _.mixin(_.str.exports());
 
     if(!regex_user_pass.test(user_info.user_pass))
       return Promise.reject('INVALID_PARAMS');
+
+    user_info.id = null;
 
     return Promise.resolve(user_info);
   }
