@@ -13,3 +13,5 @@ exports.frontend = require('./frontend/');
 exports.manager  = require('./manager/');
 exports.goods    = require('./goods/');
 exports.gift     = require('./gift/');
+exports.group    = require('./group/');
+exports.pushCake = require('./pushCake/');
