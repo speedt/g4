@@ -32,7 +32,5 @@ _.mixin(_.str.exports());
    *
    * @return
    */
-  exports = module.exports = function(back_id, cb){
-    redis.evalsha(sha1, numkeys, conf.redis.database, back_id, cb);
-  };
+  exports = module.exports = (back_id, cb) => redis.evalsha(sha1, numkeys, conf.redis.database, back_id, cb);
 })();
