@@ -6,3 +6,4 @@
 'use strict';
 
 exports.entry = require('./entry');
+exports.quit  = require('./quit');

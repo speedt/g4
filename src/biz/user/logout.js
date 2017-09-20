@@ -43,15 +43,17 @@ _.mixin(_.str.exports());
 
   function closeChannel(server_id, channel_id){
     return new Promise((resolve, reject) => {
-      redis.evalsha(sha1, numkeys,
+      redis.evalsha(
+        sha1,
+        numkeys,
         conf.redis.database,  /**/
         server_id,            /**/
         channel_id,           /**/
         (err, code) => {
-        if(err) return reject(err);
-        if(!_.isArray(code)) return reject(code);
-        resolve(utils.arrToObj(code));
-      });
+          if(err) return reject(err);
+          if(!_.isArray(code)) return reject(code);
+          resolve(utils.arrToObj(code));
+        });
     });
   }
 })();
