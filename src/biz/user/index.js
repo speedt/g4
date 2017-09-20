@@ -10,7 +10,6 @@ exports.getById             = require('./getById');
 exports.del                 = require('./del');
 exports.changePwd           = require('./changePwd');
 exports.login               = require('./login');
-exports.loginWX             = require('./loginWX');
 exports.getByName           = require('./getByName');
 exports.resetPwd            = require('./resetPwd');
 exports.findAll             = require('./findAll');

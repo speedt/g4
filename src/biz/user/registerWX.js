@@ -11,8 +11,9 @@ const conf = require(path.join(cwd, 'settings'));
 
 const uuid  = require('node-uuid');
 
-const md5   = require('speedt-utils').md5;
-const utils = require('speedt-utils').utils;
+const md5    = require('speedt-utils').md5;
+const utils  = require('speedt-utils').utils;
+const anysdk = require('speedt-anysdk');
 
 const mysql  = require('emag.db').mysql;
 const redis  = require('emag.db').redis;
@@ -31,12 +32,58 @@ _.mixin(_.str.exports());
    */
   exports = module.exports = function(user_info){
     return new Promise((resolve, reject) => {
+      anysdk.wx(user_info)
+      .then(p2)
+      .then(data => resolve(data))
+      .catch(reject);
+    });
+  };
+
+  function p2(data){
+    var _data = _.clone(data);
+
+    return new Promise((resolve, reject) => {
+      biz.user.getById(data.data.user_info.openid)
+      .then(p3.bind(null, data.data.user_info))
+      .then(() => resolve(_data))
+      .catch(reject);
+    });
+  }
+
+  var sql = 'UPDATE s_user SET nickname=?, sex=?, original_data=?, weixin=?, weixin_avatar=? WHERE id=?'
+
+  function p3(user_info, user){
+    if(!user) return newReg(user_info);
+
+    user.original_data = JSON.stringify(user_info);
+    user.nickname      = user_info.nickname;
+    user.sex           = user_info.sex;
+    user.weixin        = user_info.unionid;
+    user.weixin_avatar = user_info.headimgurl;
+
+    return new Promise((resolve, reject) => {
+      mysql.query(sql, [
+        user.nickname,
+        user.sex,
+        user.original_data,
+        user.weixin,
+        user.weixin_avatar,
+        user.id,
+      ], err => {
+        if(err) return reject(err);
+        resolve(user);
+      });
+    });
+  }
+
+  function newReg(user_info){
+    return new Promise((resolve, reject) => {
       formVali(user_info)
       .then(biz.user.saveNew)
       .then(() => resolve(user_info))
       .catch(reject);
     });
-  };
+  }
 
   function formVali(user_info){
     user_info = user_info || {};
