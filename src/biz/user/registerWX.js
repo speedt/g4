@@ -77,15 +77,6 @@ _.mixin(_.str.exports());
   }
 
   function newReg(user_info){
-    return new Promise((resolve, reject) => {
-      formVali(user_info)
-      .then(biz.user.saveNew)
-      .then(() => resolve(user_info))
-      .catch(reject);
-    });
-  }
-
-  function formVali(user_info){
     user_info = user_info || {};
 
     user_info.original_data = JSON.stringify(user_info);
@@ -95,6 +86,6 @@ _.mixin(_.str.exports());
     user_info.weixin        = user_info.unionid;
     user_info.weixin_avatar = user_info.headimgurl;
 
-    return Promise.resolve(user_info);
+    return biz.user.saveNew(user_info);
   }
 })();

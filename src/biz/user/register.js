@@ -25,25 +25,16 @@ _.str    = require('underscore.string');
 _.mixin(_.str.exports());
 
 (() => {
-  /**
-   *
-   * @return
-   */
-  exports = module.exports = function(user_info){
-    return new Promise((resolve, reject) => {
-      formVali(user_info)
-      .then(biz.user.saveNew)
-      .then(() => resolve(user_info))
-      .catch(reject);
-    });
-  };
-
   // 2-10个字符，支持中文，英文大小写、数字、下划线
   var regex_user_name = /^[\u4E00-\u9FA5a-zA-Z0-9_]{2,10}$/;
   // 6-16个字符，支持英文大小写、数字、下划线，区分大小写
   var regex_user_pass = /^[a-zA-Z0-9_]{6,16}$/;
 
-  function formVali(user_info){
+  /**
+   *
+   * @return
+   */
+  exports = module.exports = function(user_info){
     user_info = user_info || {};
 
     if(!_.isString(user_info.user_name))
@@ -64,6 +55,6 @@ _.mixin(_.str.exports());
 
     user_info.id = null;
 
-    return Promise.resolve(user_info);
-  }
+    return biz.user.saveNew(user_info);
+  };
 })();

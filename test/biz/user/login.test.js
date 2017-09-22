@@ -12,8 +12,8 @@ describe('biz.user', function(){
   it('#login', function(){
 
     return biz.user.login({
-      user_name: 'hx',
-      user_pass: '123456',
+      user_name: 'test_user',
+      user_pass: '111111',
     })
     .then(token => {
       console.log(token);
