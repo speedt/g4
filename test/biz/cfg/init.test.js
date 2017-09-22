@@ -14,6 +14,7 @@ describe('biz.cfg', function(){
 
     biz.cfg.init(function (err, docs){
       if(err) return assert.ok(!err, err);
+      console.log(docs)
       assert.equal(true, _.isArray(docs));
       done();
     });

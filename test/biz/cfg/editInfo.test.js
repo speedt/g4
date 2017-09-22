@@ -19,6 +19,7 @@ describe('biz.cfg', function(){
 
     biz.cfg.editInfo(newInfo, function (err, doc){
       if(err) return assert.ok(!err, err);
+      console.log(doc)
       assert.equal('1', doc.type_);
       done();
     });
