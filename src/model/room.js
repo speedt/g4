@@ -37,3 +37,5 @@ var Method = function(opts){
 };
 
 var pro = Method.prototype;
+
+pro.release = function(){};

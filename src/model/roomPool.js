@@ -13,7 +13,7 @@ const _  = require('underscore');
 _.str    = require('underscore.string');
 _.mixin(_.str.exports());
 
-var Room = require('./room');
+const Room = require('./room');
 
 const logger = require('log4js').getLogger('model.roomPool');
 
