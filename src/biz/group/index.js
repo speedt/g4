@@ -5,5 +5,6 @@
  */
 'use strict';
 
-exports.entry = require('./entry');
-exports.quit  = require('./quit');
+exports.entry  = require('./entry');
+exports.quit   = require('./quit');
+exports.search = require('./search');

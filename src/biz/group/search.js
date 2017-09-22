@@ -26,10 +26,18 @@ _.mixin(_.str.exports());
 
 const roomPool = require('emag.model').roomPool;
 
+const logger = require('log4js').getLogger('biz.group');
+
 (() => {
   /**
    *
    * @return
    */
-  exports = module.exports = function(server_id, channel_id, group_id){};
+  exports = module.exports = function(server_id, channel_id, group_info){
+    var room = roomPool.create(group_info);
+
+    return new Promise((resolve, reject) => {
+      resolve(room);
+    });
+  };
 })();
