@@ -11,9 +11,10 @@ const biz    = require('emag.biz');
 describe('biz.goods', function(){
   it('#getById', function(){
 
-    return biz.goods.getById('1')
+    return biz.goods.getById('test_id')
     .then(doc => {
-      assert.equal('1', doc.id);
+      console.log(doc)
+      assert.equal('test_id', doc.id);
     })
     .catch(err => {
       assert.ok(!err);

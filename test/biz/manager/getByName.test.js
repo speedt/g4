@@ -13,6 +13,7 @@ describe('biz.manager', function(){
 
     return biz.manager.getByName('admin')
     .then(doc => {
+      console.log(doc)
       assert.equal('1', doc.id);
     })
     .catch(err => {

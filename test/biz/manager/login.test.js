@@ -16,6 +16,7 @@ describe('biz.manager', function(){
       user_pass: '1',
     })
     .then(doc => {
+      console.log(doc)
       assert.equal('1', doc.id);
     })
     .catch(err => {

@@ -17,6 +17,7 @@ describe('biz.manager', function(){
       id:        '1',
     })
     .then(doc => {
+      console.log(doc)
       assert.equal('1', doc.id);
     })
     .catch(err => {

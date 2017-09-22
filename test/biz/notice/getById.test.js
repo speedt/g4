@@ -13,6 +13,7 @@ describe('biz.notice', function(){
 
     return biz.notice.getById('da426e6076be11e7ad1a29fa785dd421')
     .then(doc => {
+      console.log(doc)
       assert.equal('da426e6076be11e7ad1a29fa785dd421', doc.id);
     })
     .catch(err => {
