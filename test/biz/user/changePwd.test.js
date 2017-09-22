@@ -14,10 +14,11 @@ describe('biz.user', function(){
     return biz.user.changePwd({
       user_pass: '1',
       old_pass:  '1',
-      id:        'test_id',
+      id:        '1',
     })
     .then(doc => {
-      assert.equal('test_id', doc.id);
+      console.log(doc);
+      assert.equal('1', doc.id);
     })
     .catch(err => {
       assert.ok(!err, err);

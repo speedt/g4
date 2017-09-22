@@ -11,7 +11,7 @@ const biz    = require('emag.biz');
 describe('biz.user', function(){
   it('#del', function (done){
 
-    biz.user.del('test_id', function (err){
+    biz.user.del('1', function (err){
       if(err) return assert.ok(!err, err);
       done();
     });

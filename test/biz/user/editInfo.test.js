@@ -12,13 +12,14 @@ describe('biz.user', function(){
   it('#editInfo', function(){
 
     return biz.user.editInfo({
-      nickname:      'hx',
-      current_score: '1',
+      nickname:      '4',
+      current_score: '3',
       vip:           '2',
-      id:            'test_id',
+      id:            '1',
     })
     .then(doc => {
-      assert.equal('test_id', doc.id);
+      console.log(doc);
+      assert.equal('1', doc.id);
     })
     .catch(err => {
       assert.ok(!err, err);

@@ -12,9 +12,9 @@ describe('biz.user', function(){
   it('#getByRedisChannelId', function(){
 
     return biz.user.getByRedisChannelId('1', '2')
-    .then(user => {
-      console.log(user);
-      assert.equal('1', user.id);
+    .then(doc => {
+      console.log(doc);
+      assert.equal('1', doc.id);
     })
     .catch(err => {
       assert.ok(!err, err);

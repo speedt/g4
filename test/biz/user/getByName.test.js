@@ -13,6 +13,7 @@ describe('biz.user', function(){
 
     return biz.user.getByName('hx')
     .then(doc => {
+      console.log(doc)
       assert.equal('1', doc.id);
     })
     .catch(err => {

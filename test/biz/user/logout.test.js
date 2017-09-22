@@ -13,9 +13,9 @@ describe('biz.user', function(){
   it('#logout', function(){
 
     return biz.user.logout('1', '2')
-    .then(docs => {
-      console.log(docs);
-      assert.equal(true, _.isArray(docs));
+    .then(doc => {
+      console.log(doc);
+      assert.equal(true, _.isArray(doc));
     })
     .catch(err => {
       assert.ok(!err, err);
