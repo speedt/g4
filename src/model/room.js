@@ -47,11 +47,13 @@ var Method = function(opts){
   self.visitor_count = opts.visitor_count || 0;  // 游客人数
   self._player_count = opts.player_count  || 4;
 
-  self._free_seat = [];
+  (() => {
+    self._free_seat = [];
 
-  for(var i = 1; i <= self._player_count; i++){
-    self._free_seat.push(i)
-  }
+    for(let i = 1; i <= self._player_count; i++){
+      self._free_seat.push(i)
+    }
+  })();
 };
 
 var pro = Method.prototype;
