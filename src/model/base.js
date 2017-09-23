@@ -16,23 +16,22 @@ const _  = require('underscore');
 _.str    = require('underscore.string');
 _.mixin(_.str.exports());
 
-var Method = function(opts){
-  if(!opts.user_id) throw new Error('user_id cannot be empty');
+var Method = function(group, user){
+  if(!user.id) throw new Error('user id cannot be empty');
 
-  var self  = this;
-  self.opts = opts;
+  var self = this;
 
-  self.id   = opts.id;
-  self.name = opts.name || ('Room '+ opts.id);
+  self.id   = group.id;
+  self.name = group.name || ('Room '+ group.id);
 
   self._users   = {};
   self._players = {};
 
-  self.create_user_id = opts.user_id;
+  self.create_user_id = user.id;
   self.create_time    = new Date().getTime();
 
-  self.visitor_count = opts.visitor_count || 0;  // 游客人数
-  self._player_count = opts.player_count  || 4;
+  self.visitor_count = group.visitor_count || 0;  // 游客人数
+  self._player_count = group.player_count  || 4;
 
   (() => {
     self._free_seat = [];

@@ -21,10 +21,10 @@ var res = module.exports = {};
 
 var _rooms = {};
 
-res.create = function(room_info){
+res.create = function(room_info, user_info){
   if(!this.release(room_info.id)) return;
 
-  var room = new Room(room_info);
+  var room = new Room(room_info, user_info);
   _rooms[room.id] = room;
   return room;
 };

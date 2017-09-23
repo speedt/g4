@@ -27,9 +27,9 @@ const AS_READY = 'AS_READY';
 
 const logger = require('log4js').getLogger('model.room');
 
-var Method = function(opts){
+var Method = function(group, user){
   var self  = this;
-  Base.call(self, opts);
+  Base.call(self, group, user);
 
   self. act_seat      = 1;
   self. act_status    = AS_READY;
@@ -44,6 +44,6 @@ pro.ready = function(){
   return 'ready';
 };
 
-module.exports = function(opts){
-  return new Method(opts);
+module.exports = function(group, user){
+  return new Method(group, user);
 };

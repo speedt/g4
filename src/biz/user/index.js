@@ -13,6 +13,7 @@ exports.login               = require('./login');
 exports.getByName           = require('./getByName');
 exports.resetPwd            = require('./resetPwd');
 exports.findAll             = require('./findAll');
+exports.findAllByGroupId    = require('./findAllByGroupId');
 exports.getByRedisChannelId = require('./getByRedisChannelId');
 exports.editInfo            = require('./editInfo');
 exports.saveNew             = require('./saveNew');
