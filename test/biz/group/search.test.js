@@ -13,7 +13,8 @@ describe('biz.group', function(){
 
     return biz.group.search('1', '2', {
       id:           'test_id',
-      player_count: 6,
+      player_count: 4,
+      user_id:      ''+ new Date().getTime(),
     })
     .then(doc => {
       console.log(doc);

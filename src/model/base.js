@@ -16,9 +16,9 @@ const _  = require('underscore');
 _.str    = require('underscore.string');
 _.mixin(_.str.exports());
 
-const logger = require('log4js').getLogger('model.room');
-
 var Method = function(opts){
+  if(!opts.user_id) throw new Error('user_id cannot be empty');
+
   var self  = this;
   self.opts = opts;
 
