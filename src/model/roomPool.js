@@ -39,3 +39,11 @@ res.release = function(id){
 res.get = function(id){
   return _rooms[id];
 }
+
+res.getCount = function(){
+  return _.size(_rooms);
+};
+
+res.getAll = function(){
+  return _rooms;
+};
