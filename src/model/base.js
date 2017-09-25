@@ -196,8 +196,21 @@ pro.isFull = function(){
 pro.quit = function(user_id){
   var self = this;
 
-  var _user = self.getUser(user_id);
-  if(!_user) return true;
+  var user = self.getUser(user_id);
+  if(!user) return true;
+
+  if(self.isPlayer(user)){
+    if(self.isStart()){
+      user.opts.quit_time = new Date().getTime();
+      user.opts.is_quit   = 1;
+      return false;
+    }
+
+    self._free_seat.push(user.opts.seat);
+    delete self._players[user.opts.seat];
+  }
+
+  return (delete self._users[user_id]);
 };
 
 exports = module.exports = Method;
