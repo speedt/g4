@@ -34,27 +34,40 @@ const logger = require('log4js').getLogger('biz.group');
    * @return
    */
   exports = module.exports = function(server_id, channel_id, group_info){
+    if(!_.isObject(group_info)) return Promise.reject('INVALID_PARAMS');
+    if( _.isArray (group_info)) return Promise.reject('INVALID_PARAMS');
+
     return new Promise((resolve, reject) => {
-      formVali(group_info)
-      .then(biz.user.getByChannelId.bind(null, server_id, channel_id))
+      biz.user.getByChannelId(server_id, channel_id)
       .then(p1)
+      .then(biz.user.entryGroup)
+      .then(p2.bind(null, group_info))
       .then(doc => resolve(doc))
       .catch(reject);
     });
   };
 
-  function formVali(group_info){
-    if(!_.isObject(group_info)) return Promise.reject('INVALID_PARAMS');
-    if( _.isArray (group_info)) return Promise.reject('INVALID_PARAMS');
-    return Promise.resolve();
-  }
-
   function p1(user){
     if(user.group_id) return Promise.reject('MUST_BE_QUIT');
-    return Promise.resolve(user);
+
+    return new Promise((resolve, reject) => {
+      biz.group.genFreeId()
+      .then(free_id => {
+        user.group_id = free_id;
+        resolve(user);
+      })
+      .catch(reject);
+    });
   }
 
-  function p3(group_info, user){
+  function p2(group_info, user){
     var room = roomPool.create(group_info, user);
+    return Promise.resolve([
+      room.id,
+      room.name,
+      room.fund,
+      room.round_count,
+      room.visitor_count,
+    ]);
   }
 })();

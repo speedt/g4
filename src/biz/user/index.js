@@ -20,3 +20,4 @@ exports.saveNew             = require('./saveNew');
 exports.register            = require('./register');
 exports.registerWX          = require('./registerWX');
 exports.logout              = require('./logout');
+exports.entryGroup          = require('./entryGroup');

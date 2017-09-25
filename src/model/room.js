@@ -28,6 +28,8 @@ const AS_READY = 'AS_READY';
 const logger = require('log4js').getLogger('model.room');
 
 var Method = function(group, user){
+  if(5 > user.gold_count) throw new Error('元宝不足');
+
   var self  = this;
   Base.call(self, group, user);
 
