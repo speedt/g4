@@ -189,4 +189,15 @@ pro.isFull = function(){
   }
 })();
 
+/**
+ *
+ * @return
+ */
+pro.quit = function(user_id){
+  var self = this;
+
+  var _user = self.getUser(user_id);
+  if(!_user) return true;
+};
+
 exports = module.exports = Method;
