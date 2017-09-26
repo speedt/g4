@@ -43,7 +43,7 @@ _.mixin(_.str.exports());
     var _data = _.clone(data);
 
     return new Promise((resolve, reject) => {
-      biz.user.getByOpenId(data.data.user_info.openid)
+      biz.user.getByName(data.data.user_info.unionid)
       .then(p3.bind(null, data.data.user_info))
       .then(() => resolve(_data))
       .catch(reject);

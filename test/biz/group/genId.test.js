@@ -9,9 +9,9 @@ const assert = require('assert');
 const biz    = require('emag.biz');
 
 describe('biz.group', function(){
-  it('#genFreeId', function(){
+  it('#genId', function(){
 
-    return biz.group.genFreeId()
+    return biz.group.genId()
     .then(free_id => {
       console.log(free_id);
       assert.ok(!!free_id);
