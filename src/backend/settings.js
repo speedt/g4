@@ -19,7 +19,7 @@ module.exports = {
     password: process.env.ACTIVEMQ_PASS || 'admin',
   },
   mysql: {
-    database: 'emag2',
+    database: 'emag3',
     host: process.env.MYSQL_HOST || '127.0.0.1',
     port: process.env.MYSQL_PORT || 12306,
     user: 'root',

@@ -33,6 +33,7 @@ _.mixin(_.str.exports());
     return new Promise((resolve, reject) => {
       biz.user.getByName(user_info.user_name)
       .then(p1)
+      .then(biz.user.genId)
       .then(p2.bind(null, user_info))
       .then(() => resolve(user_info))
       .catch(reject);
@@ -50,7 +51,8 @@ _.mixin(_.str.exports());
                                 'status, '+
                                 'create_time, '+
                                 'mobile, '+
-                                'weixin, '+
+                                'openid, '+
+                                'unionid, '+
                                 'weixin_avatar, '+
                                 'current_score, '+
                                 'nickname, '+
@@ -62,11 +64,11 @@ _.mixin(_.str.exports());
                                 'lose_score_count, '+
                                 'line_gone_count, '+
                                 'gold_count, '+
-                                'original_data, '+
-                                'sex) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+                                'weixin_original, '+
+                                'sex) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
 
-  function p2(user_info){
-    user_info.id               = user_info.id || utils.replaceAll(uuid.v1(), '-', '');
+  function p2(user_info, id){
+    user_info.id               = id;
     user_info.user_pass        = md5.hex(user_info.user_pass || '123456');
     user_info.status           = 1;
     user_info.create_time      = new Date();
@@ -89,7 +91,8 @@ _.mixin(_.str.exports());
         user_info.status,
         user_info.create_time,
         user_info.mobile,
-        user_info.weixin,
+        user_info.openid,
+        user_info.unionid,
         user_info.weixin_avatar,
         user_info.current_score,
         user_info.nickname,
@@ -101,7 +104,7 @@ _.mixin(_.str.exports());
         user_info.lose_score_count,
         user_info.line_gone_count,
         user_info.gold_count,
-        user_info.original_data,
+        user_info.weixin_original,
         user_info.sex,
       ], err => {
         if(err) return reject(err);

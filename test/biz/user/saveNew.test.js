@@ -14,7 +14,6 @@ describe('biz.user', function(){
     return biz.user.saveNew({
       user_name: 'test_user',
       user_pass: '111111',
-      id:        'test_id',
     })
     .then(doc => {
       assert.notEqual(null, doc);
