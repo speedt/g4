@@ -53,8 +53,6 @@ _.mixin(_.str.exports());
     if(!regex_user_pass.test(user_info.user_pass))
       return Promise.reject('INVALID_PARAMS');
 
-    user_info.id = null;
-
     return biz.user.saveNew(user_info);
   };
 })();

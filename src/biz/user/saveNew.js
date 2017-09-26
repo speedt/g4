@@ -52,7 +52,6 @@ _.mixin(_.str.exports());
                                 'create_time, '+
                                 'mobile, '+
                                 'openid, '+
-                                'unionid, '+
                                 'weixin_avatar, '+
                                 'current_score, '+
                                 'nickname, '+
@@ -65,7 +64,7 @@ _.mixin(_.str.exports());
                                 'line_gone_count, '+
                                 'gold_count, '+
                                 'weixin_original, '+
-                                'sex) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+                                'sex) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
 
   function p2(user_info, id){
     user_info.id               = id;
@@ -92,7 +91,6 @@ _.mixin(_.str.exports());
         user_info.create_time,
         user_info.mobile,
         user_info.openid,
-        user_info.unionid,
         user_info.weixin_avatar,
         user_info.current_score,
         user_info.nickname,
