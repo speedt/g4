@@ -51,7 +51,7 @@ const logger = require('log4js').getLogger('biz.group');
     if(user.group_id) return Promise.reject('MUST_BE_QUIT');
 
     return new Promise((resolve, reject) => {
-      biz.group.genFreeId()
+      biz.group.genId()
       .then(free_id => {
         user.group_id = free_id;
         resolve(user);

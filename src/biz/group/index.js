@@ -5,7 +5,7 @@
  */
 'use strict';
 
-exports.entry     = require('./entry');
-exports.quit      = require('./quit');
-exports.search    = require('./search');
-exports.genFreeId = require('./genFreeId');
+exports.entry  = require('./entry');
+exports.quit   = require('./quit');
+exports.search = require('./search');
+exports.genId  = require('./genId');

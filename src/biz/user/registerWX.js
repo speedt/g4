@@ -43,32 +43,31 @@ _.mixin(_.str.exports());
     var _data = _.clone(data);
 
     return new Promise((resolve, reject) => {
-      biz.user.getById(data.data.user_info.openid)
+      biz.user.getByOpenId(data.data.user_info.openid)
       .then(p3.bind(null, data.data.user_info))
       .then(() => resolve(_data))
       .catch(reject);
     });
   }
 
-  var sql = 'UPDATE s_user SET nickname=?, sex=?, original_data=?, weixin=?, weixin_avatar=? WHERE id=?'
+  var sql = 'UPDATE s_user SET nickname=?, sex=?, weixin_original=?, weixin_avatar=? WHERE user_name=?'
 
   function p3(user_info, user){
     if(!user) return newReg(user_info);
 
-    user.original_data = JSON.stringify(user_info);
-    user.nickname      = user_info.nickname;
-    user.sex           = user_info.sex;
-    user.weixin        = user_info.unionid;
-    user.weixin_avatar = user_info.headimgurl;
+    user.weixin_original = JSON.stringify(user_info);
+    user.nickname        = user_info.nickname;
+    user.sex             = user_info.sex;
+    user.weixin_avatar   = user_info.headimgurl;
+    user.user_name       = user_info.unionid;
 
     return new Promise((resolve, reject) => {
       mysql.query(sql, [
         user.nickname,
         user.sex,
-        user.original_data,
-        user.weixin,
+        user.weixin_original,
         user.weixin_avatar,
-        user.id,
+        user.user_name,
       ], err => {
         if(err) return reject(err);
         resolve(user);
@@ -77,14 +76,10 @@ _.mixin(_.str.exports());
   }
 
   function newReg(user_info){
-    user_info = user_info || {};
-
-    user_info.original_data = JSON.stringify(user_info);
-    user_info.id            = user_info.openid;
-    user_info.user_name     = user_info.openid;
-    user_info.user_pass     = '123456';
-    user_info.weixin        = user_info.unionid;
-    user_info.weixin_avatar = user_info.headimgurl;
+    user_info.weixin_original = JSON.stringify(user_info);
+    user_info.user_name       = user_info.unionid;
+    user_info.user_pass       = '123456';
+    user_info.weixin_avatar   = user_info.headimgurl;
 
     return biz.user.saveNew(user_info);
   }
