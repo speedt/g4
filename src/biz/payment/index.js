@@ -5,5 +5,5 @@
  */
 'use strict';
 
-exports.findAllByUserId = require('./findAllByUserId');
-exports.saveNew         = require('./saveNew');
+exports.findByUserId = require('./findByUserId');
+exports.saveNew      = require('./saveNew');

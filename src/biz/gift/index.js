@@ -5,5 +5,5 @@
  */
 'use strict';
 
-exports.findGiftByDate = require('./findGiftByDate');
-exports.findAll        = require('./findAll');
+exports.findByDate   = require('./findByDate');
+exports.findByUserId = require('./findByUserId');

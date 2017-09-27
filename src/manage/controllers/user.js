@@ -24,7 +24,7 @@ exports.resetPwd = function(req, res, next){
 exports.del = function(req, res, next){
   var query = req.body;
 
-  biz.user.del(query.id, err => {
+  biz.user.del(query.id, false, err => {
     if(err) return next(err);
     res.send({});
   });
@@ -75,7 +75,7 @@ exports.edit = function(req, res, next){
 exports.giftUI = function(req, res, next){
   var id = req.query.id;
 
-  biz.gift.findAll(id, function (err, docs){
+  biz.gift.findByUserId(id, function (err, docs){
     if(err) return next(err);
 
     res.render('user/gift', {
@@ -92,7 +92,7 @@ exports.giftUI = function(req, res, next){
 exports.paymentUI = function(req, res, next){
   var id = req.query.id;
 
-  biz.user_payment.findAllByUserId(id, function (err, docs){
+  biz.payment.findByUserId(id, function (err, docs){
     if(err) return next(err);
 
     res.render('user/payment', {

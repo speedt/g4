@@ -25,7 +25,7 @@ _.str    = require('underscore.string');
 _.mixin(_.str.exports());
 
 (() => {
-  var sql = 'UPDATE s_user SET nickname=?, current_score=?, vip=? WHERE id=?';
+  var sql = 'UPDATE s_user SET nickname=?, current_score=?, vip=?, gold_count=gold_count+? WHERE id=?';
 
   /**
    * 获取用户
@@ -42,6 +42,7 @@ _.mixin(_.str.exports());
         user_info.nickname,
         user_info.current_score,
         user_info.vip,
+        user_info.gold_count,
         user_info.id,
       ], err => {
         if(err) return reject(err);

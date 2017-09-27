@@ -7,7 +7,6 @@
 
 module.exports = {
   app: {
-    ver: 104,
     name: process.env.APP_NAME,
     port: 9999,
   },
