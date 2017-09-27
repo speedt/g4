@@ -31,17 +31,6 @@ _.mixin(_.str.exports());
    * @return
    */
   exports = module.exports = function(logInfo /* 用户名及密码 */){
-    return new Promise((resolve, reject) => {
-      formVali(logInfo)
-      .then(biz.manager.getById.bind(null, logInfo.id))
-      .then(p1.bind(null, logInfo))
-      .then(p2.bind(null, logInfo))
-      .then(() => resolve(logInfo))
-      .catch(reject);
-    });
-  };
-
-  function formVali(logInfo){
     if(!_.isString(logInfo.user_pass))
       return Promise.reject('INVALID_PARAMS');
 
@@ -50,8 +39,14 @@ _.mixin(_.str.exports());
     if('' === logInfo.user_pass)
       return Promise.reject('INVALID_PARAMS');
 
-    return Promise.resolve();
-  }
+    return new Promise((resolve, reject) => {
+      biz.manager.getById(logInfo.id)
+      .then(p1.bind(null, logInfo))
+      .then(p2.bind(null, logInfo))
+      .then(() => resolve(logInfo))
+      .catch(reject);
+    });
+  };
 
   function p1(logInfo, user){
     if(md5.hex(logInfo.old_pass) !== user.user_pass)
