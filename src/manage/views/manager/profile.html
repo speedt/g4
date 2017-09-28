@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 	<head>
-		<title>用户资料 | 用户管理 | 后台管理</title>
+		<title>用户资料 | $!conf.app.name</title>
 		<link rel="stylesheet" href="$!{CDN}js/ace/1.1.2/assets/css/jquery.gritter.css" />
 		#parse('_pagelet/header2.html')
 		<link rel="stylesheet" href="$!{CDN}js/ace/1.1.2/assets/css/bootstrap-editable.css" />
@@ -14,21 +14,21 @@
 	</head>
 
 	<body>
-		#parse('back/_pagelet/nav.html')
+		#parse('site/_pagelet/nav.html')
 
 		<div class="main-container container-fluid">
 			<a class="menu-toggler" id="menu-toggler" href="#">
 				<span class="menu-text"></span>
 			</a>
 
-			#parse('back/_pagelet/sidebar.html')
+			#parse('site/_pagelet/sidebar.html')
 
 			<div class="main-content">
 				<div class="breadcrumbs" id="breadcrumbs">
 					<ul class="breadcrumb">
 						<li>
 							<i class="icon-home home-icon"></i>
-							<a href="/manage/">首页</a>
+							<a href="$!{conf.html.virtualPath}">首页</a>
 
 							<span class="divider">
 								<i class="icon-angle-right arrow-icon"></i>
@@ -100,7 +100,7 @@
 
 												<form id='frm' role='form' class="form-horizontal">
 
-													#*<!-- <div class="control-group">
+													<div class="control-group">
 														<label class="control-label">昵称</label>
 
 														<div class="controls">
@@ -118,7 +118,7 @@
 															<i class="icon-undo bigger-110"></i>
 															重置
 														</button>
-													</div> -->*#
+													</div>
 												</form>
 											</div>
 										</div>
