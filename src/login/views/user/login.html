@@ -74,7 +74,7 @@ function ser(frmObj){
 function push(){
   var data = ser($('#logFrm'));
   $.ajax({
-    url: '$!{conf.html.virtualPath}user/login',
+    url: '$!{conf.html.virtualPath}user/loginBack',
     type: 'POST',
     dataType: 'JSON',
     data: data,
@@ -85,7 +85,7 @@ function push(){
         if(data.error.msg)  alert(data.error.msg);
         return;
       }
-      location.href = '$!{conf.html.virtualPath}demo/?code='+ data.data[0] +'&s='+ data.data[1];
+      location.href = '$!{conf.html.virtualPath}';
     },
     error: function(){
       alert(arguments[2]);

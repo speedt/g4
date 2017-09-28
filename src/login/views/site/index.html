@@ -1,0 +1,160 @@
+#parse('_pagelet/constant.html')
+<!DOCTYPE html>
+<html lang='zh-CN'>
+	<head>
+		#parse('_pagelet/header.html')
+	</head>
+	<body>
+		#parse('_pagelet/top_banner.html')
+		<header id='header'></header>
+		<div class='container'>
+			<div class='row'>
+				<div class='col-sm-12 col-md-12'>
+				</div>
+			</div>
+			<div class='row'>
+				<div class='col-sm-12 col-md-12'>
+					<div class='panel panel-default'>
+						<div class='panel-body'>
+							<ol class='breadcrumb'>
+								<li>
+									<i class='fa fa-home fa-fw'></i>
+									<a href='${conf_html_virtualPath}'>SMS 短信</a></li>
+								<li class='active'><a href='javascript:;'>发送短信</a></li>
+							</ol>
+							<form class='form-horizontal' id='smsFrm' role='form' onsubmit='return false;' data-url='${conf_html_virtualPath}sendSMS'>
+								<div class='form-group'>
+									<div class='col-sm-12 fontSize'>
+										<select class='form-control' id='smsFrm_userid' name='Userid'>
+											<option value='766'>025通道发送（默认）</option>
+											<option value='1443'>文字彩信发送</option>
+										</select>
+									</div>
+								</div>
+								<div class='form-group' id='sendType'>
+									<!-- <label class='col-xs-12' for='smsFrm_content'>发送类型</label> -->
+									<div class='col-xs-6'>
+										<div class='radio'>
+											<label>
+												<input type='radio' name='SendType' id='smsFrm_testSend' value='1' checked>
+												<b>批量发送</b>
+											</label>
+										</div>
+									</div>
+									<div class='col-xs-6'>
+										<div class='radio'>
+											<label>
+												<input type='radio' name='SendType' id='smsFrm_batchSend' value='2'>
+												<b>测试号发送</b>
+											</label>
+										</div>
+									</div>
+								</div>
+								<div class='form-group'>
+									<label class='col-sm-12' for='smsFrm_content'>短信内容（还可以录入<span style='color:red' id='content_size'>70</span>个字）</label>
+									<div class='col-sm-12'>
+										<textarea class='form-control' rows='3' name='Content' id='smsFrm_content' placeholder='' required='required'></textarea>
+									</div>
+								</div>
+								<div class='form-group'>
+									<label class='col-sm-12' for='smsFrm_testMobile'>添加手机号（<span style='color:red'>号码之间按回车</span>）</label>
+									<div class='col-sm-12'>
+										<textarea class='form-control' rows='3' name='TestMobile' id='smsFrm_testMobile' placeholder='138371xxxx1'></textarea>
+									</div>
+								</div>
+								<div class='form-group'>
+									<div class='col-sm-12'>
+									</div>
+								</div>
+								<div class='form-group'>
+									<label class='col-sm-12' for='smsFrm_zone'>选择地区</label>
+									<div class='col-sm-12 fontSize'>
+										<select class='form-control' id='smsFrm_zone' name='Zone'>
+											#foreach($city in $data.citys)
+											<option value='$!{city.id}'#if($velocityCount == 1) selected#end>$!{city.ZONE_NAME}</option>
+											#end
+										</select>
+									</div>
+								</div>
+								<span id='span_zone_regions'>
+								</span><!-- 选择地区 -->
+								<div class='form-group'>
+									<label class='col-sm-12'>号码筛选</label>
+								</div>
+								<span id='span_code_filter'>
+								</span><!-- 号码筛选 -->
+								<div class='form-group'>
+									<label class='col-sm-12'>当前已选中（<span style='color:red' id='calcNum'>0</span>）个号码</label>
+								</div>
+								<div class='form-group'>
+									<div class='col-sm-12'>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class='modal fade' id='alertModal'>
+			<div class='modal-dialog'>
+				<div class='modal-content'>
+					<div class='modal-header'>
+						<button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>
+						<h4 class='modal-title'><b>提示</b></h4>
+					</div>
+					<div class='modal-body'>
+						<p>操作成功！</p>
+					</div>
+					<div class='modal-footer'>
+						<button type='button' class='btn btn-default' data-dismiss='modal'>关闭</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+		<div class='modal fade' id='progressModal'>
+			<div class='modal-dialog'>
+				<div class='modal-content'>
+					<div class='modal-header'>
+						<button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>
+						<h4 class='modal-title'><b>发送进度</b></h4>
+					</div>
+					<div class='modal-body'>
+						<p>
+							<div class='progress'>
+								<div class='progress-bar progress-bar-striped active' role='progressbar' aria-valuenow='80' aria-valuemin='0' aria-valuemax='100' style='width: 0%'>
+									<span class='sr-only1'>20% Complete</span>
+								</div>
+							</div>
+						</p>
+					</div>
+					<div class='modal-footer'>
+						<button type='button' class='btn btn-default' data-dismiss='modal'>关闭</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+		<div class='modal fade' id='sendConfirmModal'>
+			<div class='modal-dialog'>
+				<div class='modal-content'>
+					<div class='modal-header'>
+						<button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>
+						<h4 class='modal-title'><b>警告</b></h4>
+					</div>
+					<div class='modal-body'>
+						<p>您挑选的号码数量未达到预约数量，是否让系统进行随机抽取号码自动补充？</p>
+					</div>
+					<div class='modal-footer'>
+						<button type='button' class='btn btn-default' data-dismiss='modal'>关闭</button>
+						<button type='button' class='btn btn-primary' id='sendConfirmModal_ok'>确认</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+
+		#parse('_pagelet/js.html')
+
+		<script type='text/javascript'>
+		</script>
+	</body>
+</html>
