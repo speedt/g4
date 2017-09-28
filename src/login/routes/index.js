@@ -16,6 +16,7 @@ module.exports = function(app){
   app.post('/user/da426e6076be11e7ad1a29fa785dd421$', user.payment);
   app.post('/user/da426e6076be11e71d1a29fa785dd421$', user.wx);
 
+  app.get ('/user/changePwd$', user.changePwdUI);
   app.get ('/user/avatar$',    user.avatarUI);
   app.post('/user/loginWX$',   user.login);
   app.post('/user/loginBack$', user.loginBack);

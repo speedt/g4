@@ -143,3 +143,15 @@ exports.logoutUI = function(req, res, next){
   req.session.destroy();
   res.redirect(conf.html.virtualPath +'user/login');
 };
+
+/**
+ *
+ * @return
+ */
+exports.changePwdUI = function(req, res, next){
+  res.render('user/changePwd', {
+    conf: conf,
+    description: '',
+    keywords: ',html5,nodejs'
+  });
+};
