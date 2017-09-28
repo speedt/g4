@@ -2,7 +2,22 @@
 <!DOCTYPE html>
 <html lang='zh-CN'>
 	<head>
+		<title>后台管理 | $!conf.app.name</title>
 		#parse('_pagelet/header.html')
+		<link rel='stylesheet' type='text/css' media='screen' href='$!{CDN}js/bootstrap/3.2.0/docs/assets/css/docs.min.css?v3.2.0' />
+		<style type='text/css'>
+		.bs-callout {
+			padding: 0 20px;
+			margin: 0 0 5px;
+		}
+		.bs-callout h6 {
+			font-weight: bold;
+		}
+		.zone {
+			font-size: 12px;
+			margin-bottom: 10px;
+		}
+		</style>
 	</head>
 	<body>
 		#parse('_pagelet/top_banner.html')
@@ -10,6 +25,7 @@
 		<div class='container'>
 			<div class='row'>
 				<div class='col-sm-12 col-md-12'>
+					#parse('_pagelet/top_message.html')
 				</div>
 			</div>
 			<div class='row'>
