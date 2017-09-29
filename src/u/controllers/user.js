@@ -75,3 +75,21 @@ exports.changePwd = function(req, res, next){
     res.send({ error: { msg: err } });
   });
 };
+
+/**
+ *
+ * @return
+ */
+exports.friendsUI = function(req, res, next){
+  biz.user.findAllByChild(req.session.userId)
+  .then(docs => {
+
+    res.render('user/friends', {
+      conf: conf,
+      description: '',
+      keywords: ',html5,nodejs'
+    });
+
+  })
+  .catch(next);
+};

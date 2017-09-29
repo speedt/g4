@@ -3,7 +3,7 @@
 <html>
 	<head>
 		#parse('_pagelet/header.html')
-		<title>欢迎页</title>
+		<title>我的好友</title>
 		<link rel='stylesheet' type='text/css' media='screen' href='${conf.html.virtualPath}public/assets/css/iframe.css' />
 	</head>
 	<body>
@@ -12,16 +12,18 @@
 				<div class='col-sm-12 col-md-12'>
 					<ol class='breadcrumb'>
 						<li class='active'><i class='fa fa-home fa-fw'></i> 首页</li>
+						<li class='active'><a href='javascript:location.reload();'>我的好友</a></li>
 					</ol>
 				</div>
 			</div>
 			<div class='row'>
+				<div class='col-sm-12 col-md-12'>
+				</div>
 			</div>
 		</div>
 		#parse('_pagelet/js.html')
-		<script type='text/javascript'
-			src='${conf.html.virtualPath}public/assets/js/iframe.js'></script>
-		<script>
-		</script>
+		<script type='text/javascript' src='${conf.html.virtualPath}public/assets/js/iframe.js'></script>
+<script>
+</script>
 	</body>
 </html>

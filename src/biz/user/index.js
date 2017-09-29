@@ -15,6 +15,7 @@ exports.genId               = require('./genId');
 exports.getByName           = require('./getByName');
 exports.resetPwd            = require('./resetPwd');
 exports.findAll             = require('./findAll');
+exports.findAllByChild      = require('./findAllByChild');
 exports.findAllByGroupId    = require('./findAllByGroupId');
 exports.getByRedisChannelId = require('./getByRedisChannelId');
 exports.editInfo            = require('./editInfo');
