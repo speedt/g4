@@ -60,3 +60,18 @@ exports.changePwdUI = function(req, res, next){
     keywords: ',html5,nodejs'
   });
 };
+
+exports.changePwd = function(req, res, next){
+  var query = req.body;
+
+  query.id = req.session.userId;
+
+  biz.user.changePwd(query)
+  .then(() => {
+    res.send({});
+  })
+  .catch(err => {
+    if('string' !== typeof err) return next(err);
+    res.send({ error: { msg: err } });
+  });
+};

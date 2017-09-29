@@ -13,6 +13,7 @@ module.exports = function(app){
   app.get ('/login$',     user.loginUI);
   app.get ('/logout$',    user.logoutUI);
 
+  app.post('/changePwd$', user.login_validate, user.changePwd);
   app.get ('/changePwd$', user.login_validate, user.changePwdUI);
   app.get ('/welcome$',   user.login_validate, site.welcomeUI);
   app.get ('/',           user.login_validate, site.indexUI);
