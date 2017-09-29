@@ -99,7 +99,7 @@ app.use(function (err, req, res, next){
 var server = http.createServer(app);
 /* server.setTimeout(5000); */
 server.listen(app.get('port'), () => {
-  logger.info('login server listening on port %s', app.get('port'));
+  logger.info('u server listening on port %s', app.get('port'));
   require('./routes')(app);
 });
 

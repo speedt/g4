@@ -39,3 +39,15 @@ function getTopMessage(){
 	var d = utils.padLeft(t.getDate(), '0', 2);
 	return '欢迎您。今天是'+ y +'年'+ m +'月'+ d +'日。';
 };
+
+/**
+ *
+ * @return
+ */
+exports.welcomeUI = function(req, res, next){
+  res.render('site/welcome', {
+    conf: conf,
+    description: '',
+    keywords: ',html5,nodejs'
+  });
+};

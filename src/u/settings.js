@@ -8,7 +8,6 @@
 module.exports = {
   app: {
     name: process.env.APP_NAME,
-    id: process.env.CLIENT_ID || '1',
     port: 7777,
   },
   anysdk: {
@@ -17,7 +16,7 @@ module.exports = {
   },
   cookie: {
     key: 'web',
-    secret: 'login'
+    secret: 'u'
   },
   html: {
     virtualPath: '/u/',
