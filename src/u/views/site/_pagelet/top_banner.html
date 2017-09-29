@@ -16,16 +16,16 @@
 			</ul>
 			<ul class='nav navbar-nav navbar-right'>
 				#if($!{data.session_user})<li class='dropdown'>
-					<a href='javascript:;' class='dropdown-toggle' data-toggle='dropdown'>$!{data.session_user.nickname}@ <b class='caret'></b></a>
+					<a href='javascript:;' class='dropdown-toggle' data-toggle='dropdown'>我的@ <b class='caret'></b></a>
 					<ul class='dropdown-menu'>
-						<li><a href='#page/user/transRecord'>转账记录</a></li>
-						<li><a href='#page/user/changePwd'>修改密码</a></li>
+						<li><a href='#page/transRecord'>转账记录</a></li>
+						<li><a href='#page/changePwd'>修改密码</a></li>
 					</ul>
 				</li>#end
 				<li class='active'>#if($!{data.session_user})
-					<a href='$!{conf.html.virtualPath}user/logout'>退出</a>
+					<a href='$!{conf.html.virtualPath}logout'>退出</a>
 					#else
-					<a href='$!{conf.html.virtualPath}user/login'>登陆</a>
+					<a href='$!{conf.html.virtualPath}login'>登陆</a>
 					#end
 				</li>
 			</ul>

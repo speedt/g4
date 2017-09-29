@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang='zh-CN'>
 	<head>
+		<title>登陆 | $!conf.app.name</title>
 		#parse('_pagelet/header.html')
 	</head>
 	<body>
@@ -68,7 +69,7 @@ function ser(frmObj){
 function push(){
   var data = ser($('#logFrm'));
   $.ajax({
-    url: '$!{conf.html.virtualPath}user/loginBack',
+    url: '$!{conf.html.virtualPath}login',
     type: 'POST',
     dataType: 'JSON',
     data: data,

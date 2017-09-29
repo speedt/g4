@@ -5,12 +5,11 @@
  */
 'use strict';
 
-const pushCake = require('../controllers/pushCake');
 const user     = require('../controllers/user');
 const site     = require('../controllers/site');
 
 module.exports = function(app){
-  app.post('/login$',     user.loginBack);
+  app.post('/login$',     user.login);
   app.get ('/login$',     user.loginUI);
   app.get ('/logout$',    user.logoutUI);
 
