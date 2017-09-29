@@ -87,9 +87,21 @@ exports.friendsUI = function(req, res, next){
     res.render('user/friends', {
       conf: conf,
       description: '',
-      keywords: ',html5,nodejs'
+      keywords: ',html5,nodejs',
+      data: {
+        friends: docs,
+      }
     });
 
   })
   .catch(next);
+};
+
+exports.resetPwd = function(req, res, next){
+  var query = req.body;
+
+  biz.user.resetPwd(query.id, '123456', err => {
+    if(err) return next(err);
+    res.send({});
+  });
 };
