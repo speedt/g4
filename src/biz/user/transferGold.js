@@ -27,11 +27,12 @@ _.mixin(_.str.exports());
 (() => {
   var sql_1 = 'UPDATE s_user SET gold_count=gold_count-? WHERE id=?';
   var sql_2 = 'UPDATE s_user SET gold_count=gold_count+? WHERE id=?';
+  var sql_3 = 'INSERT INTO s_user_transfer (id, source_id, target_id, create_time, gold_num) VALUES (?, ?, ?, ?, ?)';
 
   /**
    *
    * @return
    */
-  exports = module.exports = function(source, target, num){
+  exports = module.exports = function(source, target, gold_num){
   };
 })();

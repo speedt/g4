@@ -139,7 +139,7 @@
 												</td>
 												<td class="hidden-480">$i#set($i=$i+1)</td>
 
-												<td>$!{doc.user_name}</td>
+												<td><a href='./edit?id=$!{doc.id}'>$!{doc.user_name}</a></td>
 												<td>$!{doc.nickname}</td>
 												<!-- <td>#num2Money($!{doc.current_score})</td> -->
 												<td>#num2Money($!{doc.gold_count})</td>
@@ -150,8 +150,8 @@
 												<td>
 													<div class="hidden-phone visible-desktop btn-group">
 
-														<a class="btn btn-mini btn-info" title='编辑' href='./edit?id=$!{doc.id}'>
-															<i class="icon-edit bigger-120"></i>
+														<a class="btn btn-mini btn-info" title='转账' href='./transfer?id=$!{doc.id}'>
+															<i class="icon-exchange bigger-120"></i>
 														</a>
 
 														<a class="btn btn-mini btn-danger" title='删除' href='javascript:del("$!{doc.id}")'>
@@ -181,9 +181,9 @@
 															<ul class="dropdown-menu dropdown-icon-only dropdown-yellow pull-right dropdown-caret dropdown-close">
 
 																<li>
-																	<a href='./edit?id=$!{doc.id}' class="tooltip-success" data-rel="tooltip" title="编辑">
+																	<a href='./transfer?id=$!{doc.id}' class="tooltip-success" data-rel="tooltip" title="转账">
 																		<span class="blue">
-																			<i class="icon-edit bigger-120"></i>
+																			<i class="icon-exchange bigger-120"></i>
 																		</span>
 																	</a>
 																</li>

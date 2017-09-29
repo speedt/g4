@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50623
 File Encoding         : 65001
 
-Date: 2017-09-26 17:03:41
+Date: 2017-09-29 14:47:51
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -156,11 +156,11 @@ INSERT INTO `s_user` VALUES ('4', null, 'wy', 'e10adc3949ba59abbe56e057f20f883e'
 INSERT INTO `s_user` VALUES ('5', null, 't11', 'e10adc3949ba59abbe56e057f20f883e', 'bbe1c450365b4bbd839d02411167cdea', '00163efffe05f4bb-00004ded-0000020e-1cf14eb907f7be42-b6fc8a86', '1', '', '1506352924142', '1', null, 't1', null, null, null, null, null, null, null, null, '19394', '123', '0', '0', '0', '0', '0', '0', '0', '0', null, null, null, null, null, null, null, '101');
 INSERT INTO `s_user` VALUES ('6', null, 't2', 'e10adc3949ba59abbe56e057f20f883e', 'bbe1c450365b4bbd839d02411167cdea', '00163efffe05f4bb-00004ded-00000205-9ca3208a2a89ae45-55fa7f06', '1', '967609', '1506343377625', '1', '2017-08-24 19:42:39', 't2', null, null, null, null, null, null, null, null, '41600', '89', '0', '0', '0', '0', '0', '0', '0', '0', null, null, null, null, null, null, null, '106');
 INSERT INTO `s_user` VALUES ('7', null, 't3', 'e10adc3949ba59abbe56e057f20f883e', 'bbe1c450365b4bbd839d02411167cdea', '00163efffe05f4bb-00004ded-00000206-3f21d9212a89bc12-1924022c', '1', '967609', '1506343395463', '1', null, 't3', null, null, null, null, null, null, null, null, '122862147', '87', '0', '0', '0', '0', '0', '0', '0', '0', null, null, null, null, null, null, null, '111');
-INSERT INTO `s_user` VALUES ('9c012a33aa8b4ecc8aaf20ea149a6f25', null, 'mega', 'e10adc3949ba59abbe56e057f20f883e', 'bbe1c450365b4bbd839d02411167cdea', '00163efffe05f4bb-00004ded-0000020c-315f470b4d6c0faa-66a4edd2', '1', '', '1506327597632', '1', null, '马六', null, '2017-08-08 10:18:43', null, '12341', null, null, null, null, '0', '123123', '0', '0', '0', '0', '0', '0', '0', '0', '0', null, null, null, null, null, null, '111');
 INSERT INTO `s_user` VALUES ('9fe2a410777c11e7bdc4fd3c0cd2bc87', null, 't4', 'e10adc3949ba59abbe56e057f20f883e', 'bbe1c450365b4bbd839d02411167cdea', '00163efffe05f4bb-00004ded-00000207-df5464ae6a894e00-a0e84a3c', '1', '967609', '1506343402066', '1', null, '猫4123123', '1', '2017-08-02 20:18:00', '', '', '', null, null, '', '10065', '0', '0', '0', '0', '0', '0', '0', '0', '0', null, null, null, null, null, null, null, '111');
 INSERT INTO `s_user` VALUES ('b5780670775f11e7831c0d095411373b', null, '猫2', '96e79218965eb72c92a549dd5a330112', null, null, null, '', null, '1', null, '猫2', '1', '2017-08-02 16:51:01', '', '', '', null, null, '', '43280', '0', '0', '0', '0', '0', '0', '0', '0', '0', null, null, null, null, null, null, null, '111');
-INSERT INTO `s_user` VALUES ('c2fe9bb076ba11e7ad1a29fa785dd421', null, '雪箭轩', 'bde0814411dcea94c5e0d9b29e635510', null, null, null, '', null, '1', null, '雪箭轩', '1', '2017-08-01 21:10:17', '', '', '', null, null, '', '9570499', '0', '0', '0', '0', '0', '0', '0', '0', '0', null, null, null, null, null, null, null, '111');
-INSERT INTO `s_user` VALUES ('e5e252b0776011e7831c0d095411373b', null, '猫3', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, '', null, '1', null, '猫34', '1', '2017-08-02 16:59:32', '', '', '', null, null, '', '1800023', '0', '0', '0', '0', '0', '0', '0', '0', '0', null, null, null, null, null, null, null, '111');
+INSERT INTO `s_user` VALUES ('F3SA3Q', 'I3KZQZ', '雪箭轩', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, '', null, '1', null, '雪箭轩', '1', '2017-08-01 21:10:17', '', '', '', null, null, '', '9570499', '0', '0', '0', '0', '0', '0', '0', '0', '0', null, null, null, null, null, null, null, '1111');
+INSERT INTO `s_user` VALUES ('FGDSD3', 'I3KZQZ', '猫3', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, '', null, '1', null, '猫34', '1', '2017-08-02 16:59:32', '', '', '', null, null, '', '1800023', '0', '0', '0', '0', '0', '0', '0', '0', '0', null, null, null, null, null, null, null, '111');
+INSERT INTO `s_user` VALUES ('I3KZQZ', null, 'mega', 'e10adc3949ba59abbe56e057f20f883e', 'bbe1c450365b4bbd839d02411167cdea', '00163efffe05f4bb-00004ded-0000020c-315f470b4d6c0faa-66a4edd2', '1', '', '1506327597632', '1', null, '马六', null, '2017-08-08 10:18:43', null, '12341', null, null, null, null, '0', '123123', '0', '0', '0', '0', '0', '0', '0', '0', '0', null, null, null, null, null, null, '2211');
 
 -- ----------------------------
 -- Table structure for `s_user_payment`
@@ -182,6 +182,23 @@ CREATE TABLE `s_user_payment` (
 INSERT INTO `s_user_payment` VALUES ('1bc8e9407a7a11e7ae301facf754df8a', '9c012a33aa8b4ecc8aaf20ea149a6f25', '4', '2017-08-06 15:37:33', 'PB15552017080611424675675', null);
 INSERT INTO `s_user_payment` VALUES ('1d18c1d07a7a11e7ae301facf754df8a', '9c012a33aa8b4ecc8aaf20ea149a6f25', '3', '2017-08-06 15:37:35', 'PB15552017080611424675675', null);
 INSERT INTO `s_user_payment` VALUES ('9fd3f8707a7911e7ae301facf754df8a', '9c012a33aa8b4ecc8aaf20ea149a6f25', '3', '2017-08-06 15:34:05', 'PB15552017080611424675675', null);
+
+-- ----------------------------
+-- Table structure for `s_user_transfer`
+-- ----------------------------
+DROP TABLE IF EXISTS `s_user_transfer`;
+CREATE TABLE `s_user_transfer` (
+  `id` varchar(32) NOT NULL,
+  `source_id` varchar(32) DEFAULT NULL,
+  `target_id` varchar(32) DEFAULT NULL,
+  `create_time` datetime DEFAULT NULL,
+  `gold_num` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of s_user_transfer
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for `w_game_prop`
