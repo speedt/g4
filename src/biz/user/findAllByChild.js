@@ -25,7 +25,7 @@ _.str    = require('underscore.string');
 _.mixin(_.str.exports());
 
 (() => {
-  var sql = 'SELECT a.* FROM s_user a WHERE a.p_id=? ORDER BY a.create_time ASC';
+  var sql = 'SELECT a.* FROM s_user a WHERE a.p_id=? ORDER BY a.create_time DESC';
 
   /**
    *

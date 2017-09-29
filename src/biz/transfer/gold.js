@@ -34,5 +34,12 @@ _.mixin(_.str.exports());
    * @return
    */
   exports = module.exports = function(source, target, gold_num){
+    return new Promise((resolve, reject) => {
+      id:          '1',
+      source_id:   '2',
+      target_id:   '3',
+      create_time: new Date(),
+      gold_num:    4,
+    });
   };
 })();

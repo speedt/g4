@@ -16,3 +16,4 @@ exports.gift     = require('./gift/');
 exports.group    = require('./group/');
 exports.pushCake = require('./pushCake/');
 exports.payment  = require('./payment/');
+exports.transfer = require('./transfer/');
