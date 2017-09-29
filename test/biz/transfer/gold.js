@@ -11,10 +11,9 @@ const biz    = require('emag.biz');
 describe('biz.transfer', function(){
   it('#gold', function(){
 
-    return biz.transfer.gold('1', '2', 100)
-    .then(doc => {
-      console.log(doc);
-      assert.ok(doc);
+    return biz.transfer.gold('I3KZQZ', 'FGDSD3', 100)
+    .then(() => {
+      assert.ok(true);
     })
     .catch(err => {
       assert.ok(!err, err);
