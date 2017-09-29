@@ -25,28 +25,13 @@ _.str    = require('underscore.string');
 _.mixin(_.str.exports());
 
 (() => {
-  var sql = 'UPDATE s_user SET nickname=?, current_score=?, vip=? WHERE id=?';
+  var sql_1 = 'UPDATE s_user SET gold_count=gold_count-? WHERE id=?';
+  var sql_2 = 'UPDATE s_user SET gold_count=gold_count+? WHERE id=?';
 
   /**
-   * 获取用户
    *
-   * @param id 用户id
    * @return
    */
-  exports = module.exports = function(user_info, trans){
-    user_info.current_score = user_info.current_score || 0;
-    user_info.vip           = user_info.vip           || 0;
-
-    return new Promise((resolve, reject) => {
-      (trans || mysql).query(sql, [
-        user_info.nickname,
-        user_info.current_score,
-        user_info.vip,
-        user_info.id,
-      ], err => {
-        if(err) return reject(err);
-        resolve(user_info);
-      });
-    });
+  exports = module.exports = function(source, target, num){
   };
 })();

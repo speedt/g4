@@ -25,3 +25,4 @@ exports.registerWX          = require('./registerWX');
 exports.logout              = require('./logout');
 exports.entryGroup          = require('./entryGroup');
 exports.quitGroup           = require('./quitGroup');
+exports.transferGold        = require('./transferGold');
