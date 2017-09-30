@@ -52,6 +52,12 @@
 		#parse('_pagelet/js.html')
 		<script type='text/javascript' src='${conf.html.virtualPath}public/assets/js/iframe.js'></script>
 <script>
+
+$(function(){
+  $('#frm_target_id').val(location.search.match(/id=([\w\-]+)/) ? RegExp.$1 : '');
+  $('#frm_gold_num').val(1);
+});
+
 function ser(frmObj){
   var _a = frmObj.serializeArray();
   var _b = _.pluck(_a, 'name');

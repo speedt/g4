@@ -34,7 +34,7 @@
 							<tbody>#set ($i=1)
 								#foreach($!doc in $!data.friends)<tr>
 									<td class='ta'>$i#set($i=$i+1)</td>
-									<td><a href='./edit?id=$!{doc.id}'>$!{doc.nickname}</a></td>
+									<td><a href='javascript:;'>$!{doc.nickname}</a></td>
 									<td>#num2Money($!{doc.gold_count})</td>
 									<td>#formatDate($!{doc.create_time})</td>
 									<td>
