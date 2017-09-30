@@ -126,3 +126,28 @@ exports.transRecordUI = function(req, res, next){
   })
   .catch(next);
 };
+
+/**
+ *
+ * @return
+ */
+exports.transferUI = function(req, res, next){
+  res.render('user/transfer', {
+    conf: conf,
+    description: '',
+    keywords: ',html5,nodejs'
+  });
+};
+
+exports.transfer = function(req, res, next){
+  var query = req.body;
+
+  biz.transfer.gold(req.session.userId, query.target_id, query.gold_num)
+  .then(() => {
+    res.send({});
+  })
+  .catch(err => {
+    if('string' !== typeof err) return next(err);
+    res.send({ error: { msg: err } });
+  });
+};

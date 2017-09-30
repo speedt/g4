@@ -17,6 +17,9 @@ module.exports = function(app){
   app.post('/changePwd$',   user.login_validate, user.changePwd);
   app.get ('/changePwd$',   user.login_validate, user.changePwdUI);
   app.get ('/transRecord$', user.login_validate, user.transRecordUI);
+
+  app.post('/transfer$',    user.login_validate, user.transfer);
+  app.get ('/transfer$',    user.login_validate, user.transferUI);
   app.get ('/friends$',     user.login_validate, user.friendsUI);
   app.get ('/welcome$',     user.login_validate, site.welcomeUI);
   app.get ('/',             user.login_validate, site.indexUI);

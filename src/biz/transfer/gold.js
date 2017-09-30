@@ -34,12 +34,15 @@ _.mixin(_.str.exports());
    * @return
    */
   exports = module.exports = function(source, target, gold_num){
+    gold_num -= 0;
+
     if(!_.isNumber(gold_num)) return Promise.reject('INVALID_PARAMS');
+    if(1 > gold_num)          return Promise.reject('INVALID_PARAMS');
 
     return new Promise((resolve, reject) => {
       biz.user.getById(source)
       .then(p1.bind(null, gold_num))
-      .then(biz.user.getById(target))
+      .then(biz.user.getById.bind(null, target))
       .then(mysql.beginTransaction.bind(mysql))
       .then(p2.bind(null, source, target, gold_num))
       .then(() => resolve())
