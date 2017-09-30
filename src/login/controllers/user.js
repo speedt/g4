@@ -61,23 +61,6 @@ exports.loginUI = function(req, res, next){
   };
 })();
 
-exports.loginBack = function(req, res, next){
-  var query = req.body;
-
-  biz.user.loginBack(query)
-  .then(user => {
-    // session
-    req.session.userId = user.id;
-    req.session.user = user;
-
-    res.send({});
-  })
-  .catch(err => {
-    if('string' !== typeof err) return next(err);
-    res.send({ error: { msg: err } });
-  });
-};
-
 (() => {
   function p1(res, token){
     res.send(token);
@@ -131,27 +114,4 @@ exports.avatarUI = function(req, res, next){
     req.pipe(request(doc.weixin_avatar).on('error', next)).pipe(res);
   })
   .catch(next);
-};
-
-exports.login_validate = function(req, res, next){
-  if(req.session.userId) return next();
-  if(req.xhr) return res.send({ error: { msg: '无权访问' } });
-  res.redirect(conf.html.virtualPath +'user/login?refererUrl='+ escape(conf.html.virtualPath + req.url.substr(1)));
-};
-
-exports.logoutUI = function(req, res, next){
-  req.session.destroy();
-  res.redirect(conf.html.virtualPath +'user/login');
-};
-
-/**
- *
- * @return
- */
-exports.changePwdUI = function(req, res, next){
-  res.render('user/changePwd', {
-    conf: conf,
-    description: '',
-    keywords: ',html5,nodejs'
-  });
 };

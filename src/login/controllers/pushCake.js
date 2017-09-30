@@ -16,10 +16,3 @@ exports.indexUI = function(req, res, next){
     data: {}
   });
 };
-
-exports.loginUI = function(req, res, next){
-  res.render('pushCake/login', {
-    conf: conf,
-    data: {}
-  });
-};
