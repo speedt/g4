@@ -45,9 +45,21 @@ function getTopMessage(){
  * @return
  */
 exports.welcomeUI = function(req, res, next){
-  res.render('site/welcome', {
-    conf: conf,
-    description: '',
-    keywords: ',html5,nodejs'
+  biz.user.getById(req.session.userId, true)
+  .then(user => {
+
+    res.render('site/welcome', {
+      conf: conf,
+      description: '',
+      keywords: ',html5,nodejs',
+      data: {
+        user: user,
+      }
+    });
+
+  })
+  .catch(err => {
+    if('string' !== typeof err) return next(err);
+    res.send({ error: { msg: err } });
   });
 };
