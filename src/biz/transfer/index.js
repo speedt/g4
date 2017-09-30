@@ -5,4 +5,5 @@
  */
 'use strict';
 
-exports.gold = require('./gold');
+exports.gold             = require('./gold');
+exports.findGoldBySource = require('./findGoldBySource');

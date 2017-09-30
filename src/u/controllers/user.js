@@ -105,3 +105,24 @@ exports.resetPwd = function(req, res, next){
     res.send({});
   });
 };
+
+/**
+ *
+ * @return
+ */
+exports.transRecordUI = function(req, res, next){
+  biz.transfer.findGoldBySource(req.session.userId)
+  .then(docs => {
+
+    res.render('user/transRecord', {
+      conf: conf,
+      description: '',
+      keywords: ',html5,nodejs',
+      data: {
+        records: docs,
+      }
+    });
+
+  })
+  .catch(next);
+};

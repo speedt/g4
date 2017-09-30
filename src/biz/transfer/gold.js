@@ -65,18 +65,18 @@ _.mixin(_.str.exports());
     });
   }
 
-  function p3(source, gold_count, trans){
+  function p3(source, gold_num, trans){
     return new Promise((resolve, reject) => {
-      trans.query(sql_1, [gold_count, source], err => {
+      trans.query(sql_1, [gold_num, source], err => {
         if(err) return reject(err);
         resolve();
       });
     });
   }
 
-  function p4(target, gold_count, trans){
+  function p4(target, gold_num, trans){
     return new Promise((resolve, reject) => {
-      trans.query(sql_2, [gold_count, target], err => {
+      trans.query(sql_2, [gold_num, target], err => {
         if(err) return reject(err);
         resolve();
       });
