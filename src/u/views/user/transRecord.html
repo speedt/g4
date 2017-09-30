@@ -28,6 +28,7 @@
 									<th>转账人</th>
 									<th>元宝</th>
 									<th>转账时间</th>
+									<th>操作</th>
 								</tr>
 							</thead>
 							<tbody>#set ($i=1)
@@ -36,6 +37,9 @@
 									<td>$!{doc.target_nickname}</td>
 									<td>#num2Money($!{doc.gold_num})</td>
 									<td>#formatDate($!{doc.create_time})</td>
+									<td>
+										<a href='./transfer?id=$!{doc.target_id}'>转账</a>
+									</td>
 								</tr>#end
 							</tbody>
 						</table>
