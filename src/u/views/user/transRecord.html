@@ -38,7 +38,7 @@
 									<td>#num2Money($!{doc.gold_num})</td>
 									<td>#formatDate($!{doc.create_time})</td>
 									<td>
-										<a href='./transfer?id=$!{doc.target_id}'>转账</a>
+										<a href='javascript:jump("$!{doc.target_id}")'>转账</a>
 									</td>
 								</tr>#end
 							</tbody>
@@ -50,6 +50,9 @@
 		#parse('_pagelet/js.html')
 		<script type='text/javascript' src='${conf.html.virtualPath}public/assets/js/iframe.js'></script>
 <script>
+function jump(id){
+  top.location.href='/u/#page/transfer?id='+ id;
+}
 </script>
 	</body>
 </html>

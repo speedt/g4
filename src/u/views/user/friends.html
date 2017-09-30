@@ -38,7 +38,7 @@
 									<td>#num2Money($!{doc.gold_count})</td>
 									<td>#formatDate($!{doc.create_time})</td>
 									<td>
-										<a href='./transfer?id=$!{doc.id}'>转账</a>
+										<a href='javascript:jump("$!{doc.id}")'>转账</a>
 										<a href='javascript:resetPwd("$!{doc.id}")'>密码重置</a>
 									</td>
 								</tr>#end
@@ -67,6 +67,9 @@ function resetPwd(id){
       }
     });
   }
+}
+function jump(id){
+  top.location.href='/u/#page/transfer?id='+ id;
 }
 </script>
 	</body>
