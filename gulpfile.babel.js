@@ -14,7 +14,13 @@ gulp.task("clean", () => {
   return gulp.src("dist/*").pipe(clean({ force: true }));
 });
 
-gulp.task("default", ['copy1', 'copy1_1', 'copy2', 'copy2_1', 'copy3', 'copy3_1', 'copy4', 'copy4_1', 'copy5', 'copy5_1', 'copy6', 'copy6_1'], () => {
+gulp.task("default", ['copy1', 'copy1_1',
+                      'copy2', 'copy2_1',
+                      'copy3', 'copy3_1',
+                      'copy4', 'copy4_1',
+                      'copy5', 'copy5_1',
+                      'copy6', 'copy6_1',
+                      'copy7', 'copy7_1', 'copy7_2', 'copy7_3', 'copy7_4', 'copy7_5'], () => {
 });
 
 gulp.task("copy1", () => {
@@ -87,4 +93,36 @@ gulp.task("copy6", () => {
 gulp.task("copy6_1", () => {
   return gulp.src("src/model/package.json")
           .pipe(gulp.dest("dist/model"));
+});
+
+gulp.task("copy7", () => {
+  return gulp.src(["src/u/**/*.js", "!src/u/node_modules/**/*"])
+          .pipe(babel())
+          .pipe(uglify({ mangle: { toplevel: true } }))
+          .pipe(gulp.dest("dist/u"));
+});
+
+gulp.task("copy7_1", () => {
+  return gulp.src(["src/u/**/*.html", "!src/u/node_modules/**/*"])
+          .pipe(gulp.dest("dist/u"));
+});
+
+gulp.task("copy7_2", () => {
+  return gulp.src(["src/u/**/*.css", "!src/u/node_modules/**/*"])
+          .pipe(gulp.dest("dist/u"));
+});
+
+gulp.task("copy7_3", () => {
+  return gulp.src(["src/u/**/*.ico", "!src/u/node_modules/**/*"])
+          .pipe(gulp.dest("dist/u"));
+});
+
+gulp.task("copy7_4", () => {
+  return gulp.src(["src/u/run.*", "!src/u/node_modules/**/*"])
+          .pipe(gulp.dest("dist/u"));
+});
+
+gulp.task("copy7_5", () => {
+  return gulp.src(["src/u/package.json", "!src/u/node_modules/**/*"])
+          .pipe(gulp.dest("dist/u"));
 });
