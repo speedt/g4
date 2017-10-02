@@ -68,6 +68,8 @@ _.mixin(_.str.exports());
 
   function p2(user_info, id){
     user_info.id               = id;
+    user_info.p_id             = null;
+    user_info.path             = null;
     user_info.user_pass        = md5.hex(user_info.user_pass || '123456');
     user_info.status           = 1;
     user_info.create_time      = new Date();

@@ -34,6 +34,8 @@ _.mixin(_.str.exports());
    * @return
    */
   exports = module.exports = function(source, target, gold_num){
+    if(source === target) return Promise.reject('INVALID_PARAMS');
+
     gold_num -= 0;
 
     if(!_.isNumber(gold_num)) return Promise.reject('INVALID_PARAMS');
