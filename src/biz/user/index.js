@@ -13,6 +13,7 @@ exports.login               = require('./login');
 exports.loginBack           = require('./loginBack');
 exports.genId               = require('./genId');
 exports.getByName           = require('./getByName');
+exports.getByWXOpenid       = require('./getByWXOpenid');
 exports.resetPwd            = require('./resetPwd');
 exports.findAll             = require('./findAll');
 exports.findAllByChild      = require('./findAllByChild');

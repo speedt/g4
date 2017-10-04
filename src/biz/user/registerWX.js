@@ -34,6 +34,7 @@ _.mixin(_.str.exports());
     return new Promise((resolve, reject) => {
       anysdk.wx(user_info)
       .then(p2)
+      // p2(user_info)
       .then(data => resolve(data))
       .catch(reject);
     });
@@ -43,31 +44,30 @@ _.mixin(_.str.exports());
     var _data = _.clone(data);
 
     return new Promise((resolve, reject) => {
-      biz.user.getByName(data.data.user_info.unionid)
+      biz.user.getByWXOpenid(data.data.user_info.openid)
       .then(p3.bind(null, data.data.user_info))
       .then(() => resolve(_data))
       .catch(reject);
     });
   }
 
-  var sql = 'UPDATE s_user SET nickname=?, sex=?, weixin_original=?, weixin_avatar=? WHERE user_name=?'
+  var sql = 'UPDATE s_user SET wx_original=?, nickname=?, sex=?, wx_avatar=? WHERE wx_openid=?'
 
   function p3(user_info, user){
     if(!user) return newReg(user_info);
 
-    user.weixin_original = JSON.stringify(user_info);
-    user.nickname        = user_info.nickname;
-    user.sex             = user_info.sex;
-    user.weixin_avatar   = user_info.headimgurl;
-    user.user_name       = user_info.unionid;
+    user.wx_original = JSON.stringify(user_info);
+    user.nickname    = user_info.nickname;
+    user.sex         = user_info.sex;
+    user.wx_avatar   = user_info.headimgurl;
 
     return new Promise((resolve, reject) => {
       mysql.query(sql, [
+        user.wx_original,
         user.nickname,
         user.sex,
-        user.weixin_original,
-        user.weixin_avatar,
-        user.user_name,
+        user.wx_avatar,
+        user.wx_openid,
       ], err => {
         if(err) return reject(err);
         resolve(user);
@@ -76,10 +76,14 @@ _.mixin(_.str.exports());
   }
 
   function newReg(user_info){
-    user_info.weixin_original = JSON.stringify(user_info);
-    user_info.user_name       = user_info.unionid;
-    user_info.user_pass       = '123456';
-    user_info.weixin_avatar   = user_info.headimgurl;
+    user_info.wx_original = JSON.stringify(user_info);
+    user_info.user_name   = user_info.openid;
+    user_info.user_pass   = '123456tb';
+
+    user_info.wx_openid  = user_info.openid;
+    user_info.wx_unionid = user_info.unionid;
+    user_info.wx_pass    = '123456';
+    user_info.wx_avatar  = user_info.headimgurl;
 
     return biz.user.saveNew(user_info);
   }
