@@ -82,7 +82,7 @@ _.mixin(_.str.exports());
 
     user_info.wx_openid  = user_info.openid;
     user_info.wx_unionid = user_info.unionid;
-    user_info.wx_pass    = '123456';
+    user_info.wx_pass    = md5.hex('123456');
     user_info.wx_avatar  = user_info.headimgurl;
 
     return biz.user.saveNew(user_info);
