@@ -51,8 +51,11 @@ _.mixin(_.str.exports());
                                 'status, '+
                                 'create_time, '+
                                 'mobile, '+
-                                'openid, '+
-                                'weixin_avatar, '+
+                                'wx_openid, '+
+                                'wx_unionid, '+
+                                'wx_pass, '+
+                                'wx_avatar, '+
+                                'wx_original, '+
                                 'current_score, '+
                                 'nickname, '+
                                 'vip, '+
@@ -63,13 +66,31 @@ _.mixin(_.str.exports());
                                 'lose_score_count, '+
                                 'line_gone_count, '+
                                 'gold_count, '+
-                                'weixin_original, '+
-                                'sex) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+                                'sex) VALUES (?, '+
+                                '?, '+
+                                '?, '+
+                                '?, '+
+                                '?, '+
+                                '?, '+
+                                '?, '+
+                                '?, '+
+                                '?, '+
+                                '?, '+
+                                '?, '+
+                                '?, '+
+                                '?, '+
+                                '?, '+
+                                '?, '+
+                                '?, '+
+                                '?, '+
+                                '?, '+
+                                '?, '+
+                                '?, '+
+                                '?, '+
+                                '?)';
 
   function p2(user_info, id){
     user_info.id               = id;
-    user_info.p_id             = null;
-    user_info.path             = null;
     user_info.user_pass        = md5.hex(user_info.user_pass || '123456');
     user_info.status           = 1;
     user_info.create_time      = new Date();
@@ -81,7 +102,7 @@ _.mixin(_.str.exports());
     user_info.win_score_count  = 0;
     user_info.lose_score_count = 0;
     user_info.line_gone_count  = 0;
-    user_info.gold_count       = user_info.gold_count || 100;
+    user_info.gold_count       = user_info.gold_count || 20;
     user_info.sex              = user_info.sex        || 0;
 
     return new Promise((resolve, reject) => {
@@ -92,8 +113,11 @@ _.mixin(_.str.exports());
         user_info.status,
         user_info.create_time,
         user_info.mobile,
-        user_info.openid,
-        user_info.weixin_avatar,
+        user_info.wx_openid,
+        user_info.wx_unionid,
+        user_info.wx_pass,
+        user_info.wx_avatar,
+        user_info.wx_original,
         user_info.current_score,
         user_info.nickname,
         user_info.vip,
@@ -104,7 +128,6 @@ _.mixin(_.str.exports());
         user_info.lose_score_count,
         user_info.line_gone_count,
         user_info.gold_count,
-        user_info.weixin_original,
         user_info.sex,
       ], err => {
         if(err) return reject(err);
